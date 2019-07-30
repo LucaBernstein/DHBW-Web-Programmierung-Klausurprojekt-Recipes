@@ -6,18 +6,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from '@angular/material';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipesAddComponent } from './recipes-add/recipes-add.component';
-import { ShoppingListsComponent } from './shopping-lists/shopping-lists.component';
-import { ShoppingItemsComponent } from './shopping-items/shopping-items.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { RecipesListComponent } from './recipe/list-all/recipes-list.component';
+import { RecipesEditNewComponent } from './recipe/edit/recipes-edit-new.component';
+import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        RecipesComponent,
-        RecipesAddComponent,
-        ShoppingListsComponent,
-        ShoppingItemsComponent
+        RecipesListComponent,
+        RecipesEditNewComponent,
+        RecipeDetailsComponent,
     ],
     imports: [
         BrowserModule,
@@ -27,7 +27,8 @@ import { ShoppingItemsComponent } from './shopping-items/shopping-items.componen
         MatSidenavModule,
         MatListModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipesAddComponent } from './recipes-add/recipes-add.component';
-import { ShoppingItemsComponent } from './shopping-items/shopping-items.component';
-import { ShoppingListsComponent } from './shopping-lists/shopping-lists.component';
+import { RecipesListComponent } from './recipe/list-all/recipes-list.component';
+import { RecipesEditNewComponent } from './recipe/edit/recipes-edit-new.component';
+import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
 
 
 const routes: Routes = [
-    { path: 'recipes', component: RecipesComponent },
-    { path: 'recipes/add', component: RecipesAddComponent },
-    { path: 'shopping-lists', component: ShoppingListsComponent },
-    { path: 'shopping-lists/items', component: ShoppingItemsComponent },
+    { path: 'recipes', component: RecipesListComponent }, // List all recipes in card style
+    { path: 'recipes/:recipeId', component: RecipeDetailsComponent }, // Show details of specific recipe
+    { path: 'recipes/new', component: RecipesEditNewComponent }, // Add a new recipe
+    { path: 'recipes/edit/:recipeId', component: RecipesEditNewComponent }, // Edit an existing recipe (same view as add)
+
+    // { path: 'shopping-lists', component: ShoppingListsComponent },
+    // { path: 'shopping-lists/items', component: ShoppingItemsComponent },
     // { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 
