@@ -1,12 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <h1>{{ title }}</h1>
+        <h1><a mat-button [routerLink]="'/'">{{ title }}</a></h1>
         <span class="menu-spacer"></span>
         <div>
-            <a mat-button [routerLink]="'/'"> Recipes </a>
-            <a mat-button [routerLink]="'/contacts'"> Shopping lists </a>
-            <a mat-button [routerLink]="'/add-recipe'"> Items </a>
+            <a mat-button [routerLink]="'/recipes'"> Recipes </a>
+            <a mat-button [routerLink]="'/recipes/add'"> Add Recipe </a>
+            <a mat-button [routerLink]="'/shopping'"> Shopping lists </a>
+            <a mat-button [routerLink]="'/shopping/item'"> Shopping list items </a>
         </div>
     </mat-toolbar-row>
 
