@@ -6,6 +6,7 @@ import { RecipesListComponent } from './recipe/list-all/recipes-list.component';
 import { RecipesEditNewComponent } from './recipe/edit/recipes-edit-new.component';
 import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
 import { ItemsListComponent } from './shopping/items-list/items-list.component';
+import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
     { path: 'recipes/:recipeId', component: RecipeDetailsComponent }, // Show details of specific recipe
     { path: 'recipes/edit/:recipeId', component: RecipesEditNewComponent }, // Edit an existing recipe (same view as add)
 
-    // { path: 'shopping-lists', component: ShoppingListsComponent },
+    { path: 'shopping/list', component: ShoppingListComponent },
     { path: 'shopping/items', component: ItemsListComponent },
 
     // { path: '/', redirectTo: '/recipes', pathMatch: 'full' } // Home is /recipes
