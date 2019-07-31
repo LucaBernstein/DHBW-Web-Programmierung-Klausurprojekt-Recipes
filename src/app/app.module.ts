@@ -14,6 +14,7 @@ import { RecipesEditNewComponent } from './recipe/edit/recipes-edit-new.componen
 import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
 import { NavbarComponent } from './generic-components/navbar/navbar.component';
 import { ItemsListComponent } from './shopping/items-list/items-list.component';
+import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { ItemsListComponent } from './shopping/items-list/items-list.component';
         RecipeDetailsComponent,
         NavbarComponent,
         ItemsListComponent,
+        ShoppingListComponent,
     ],
     imports: [
         BrowserModule,
