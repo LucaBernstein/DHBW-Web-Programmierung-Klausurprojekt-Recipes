@@ -3,9 +3,9 @@
 <!-- Check if object given is null and then automatically lay everything out for creating a new one? -->
 
 <form class="example-form container">
-    <div fxLayout.xs="row wrap" fxLayoutAlign="space-evenly start">
+    <div fxLayout.sm="row" fxLayout.xs="row wrap" fxLayoutAlign="space-evenly start">
 
-        <div style="padding: 1em;">
+        <div style="padding: 1em;" fxFlex="auto">
             <mat-form-field class="example-full-width">
                 <!-- are all of these values in here really required? -->
                 <input matInput placeholder="Recipe title" [(ngModel)]="recipe.title" id="title" name="title" required>
@@ -20,7 +20,7 @@
                     name="description"></textarea>
             </mat-form-field>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-evenly start" style="padding: 1em;">
+        <div style="padding: 1em;" fxFlex="auto">
             <!-- TODO: Add ingredients -->
             Ingredients
             - Button to add
