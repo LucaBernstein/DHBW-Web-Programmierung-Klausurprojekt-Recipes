@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RECIPIES } from './../mock-recipies'
 import { Recipe } from '../recipe.class';
+import { RecipeService } from '../recipe.service';
 
 @Component({
     selector: 'app-recipes-list',
@@ -8,14 +8,15 @@ import { Recipe } from '../recipe.class';
     styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
-    // TODO: Use recipe service
-    recipies = RECIPIES;
+    recipies: Recipe[];
 
-    constructor() { }
+    constructor(private recipeService: RecipeService) { }
 
     ngOnInit() {
+        this.recipies = this.recipeService.getAll()
     }
 
+    // TODO: Remove as it does not work.
     selectedRecipe: Recipe;
     onSelect(recipe: Recipe): void {
         this.selectedRecipe = recipe;

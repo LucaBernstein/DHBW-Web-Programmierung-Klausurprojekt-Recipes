@@ -7,10 +7,13 @@ import { RECIPIES } from './mock-recipies'
     providedIn: 'root'
 })
 export class RecipeService {
-
     private recipes: Recipe[] = RECIPIES;
 
     constructor() { }
+
+    getAll(): Recipe[] {
+        return this.recipes;
+    }
 
     // Find mock recipe by ID.
     public findById(id: string): Recipe | null {
