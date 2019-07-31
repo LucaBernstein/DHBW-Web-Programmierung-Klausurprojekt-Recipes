@@ -5,6 +5,8 @@ export class Recipe {
     title: string;
     description?: string;
     difficulty?: number;
+    image?: string;
+
 
     populateWithId(): Recipe {
         this.id = RecipeService.getNewRecipeId();

@@ -10,9 +10,12 @@
             <input [(ngModel)]="recipe.title" type="text" class="form-control" id="title" name="title" required>
         </div>
 
+        <!-- TODO: Add ingredients -->
+
+        <!-- TODO: Add image -->
         <div class="form-group">
-            <label for="alterEgo">Alter Ego</label>
-            <input type="text" class="form-control" id="alterEgo">
+            <label for="image">Image URL</label>
+            <input [(ngModel)]="recipe.image" type="text" class="form-control" id="image" name="image" required>
         </div>
 
         <button type="submit" class="btn btn-success" (click)="saveRecipe()">Save</button>

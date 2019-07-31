@@ -36,8 +36,8 @@ export class RecipesEditNewComponent implements OnInit {
     }
 
     saveRecipe() {
-        this.recipe.populateWithId()
-        this.recipeService.saveOrAdd(this.recipe);
+        this.recipe.populateWithId() // Assign new ID to recipe
+        this.recipeService.saveOrAdd(this.recipe); // Save recipe to service
         this.router.navigate(['recipes', this.recipe.id]); // Go to details page after changes have been saved.
     }
 

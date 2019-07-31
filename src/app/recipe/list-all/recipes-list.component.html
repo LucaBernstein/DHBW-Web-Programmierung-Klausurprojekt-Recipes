@@ -1,7 +1,6 @@
 <h2>My Recipes</h2>
 <ul class="recipes-list">
     <li *ngFor="let recipe of recipes">
-        <!--<span class="badge">{{recipe.id}}</span>-->
-        <a mat-button routerLink="/recipes/{{recipe.id}}">{{recipe.title}}</a>
+        <a mat-button routerLink="/recipes/{{recipe.id}}">{{recipe.title}}</a> {{ recipe | json }}
     </li>
 </ul>
