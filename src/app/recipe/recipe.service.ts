@@ -7,6 +7,7 @@ import { RECIPIES } from './mock-recipies'
     providedIn: 'root'
 })
 export class RecipeService {
+
     private recipes: Recipe[] = RECIPIES;
 
     constructor() { }
@@ -26,4 +27,5 @@ export class RecipeService {
         });
         return finding;
     }
+
 }

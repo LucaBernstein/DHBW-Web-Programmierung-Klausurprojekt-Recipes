@@ -8,18 +8,13 @@ import { RecipeService } from '../recipe.service';
     styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
+
     recipies: Recipe[];
 
     constructor(private recipeService: RecipeService) { }
 
     ngOnInit() {
         this.recipies = this.recipeService.getAll()
-    }
-
-    // TODO: Remove as it does not work.
-    selectedRecipe: Recipe;
-    onSelect(recipe: Recipe): void {
-        this.selectedRecipe = recipe;
     }
 
 }
