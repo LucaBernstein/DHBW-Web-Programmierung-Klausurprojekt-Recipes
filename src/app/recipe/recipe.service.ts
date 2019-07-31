@@ -12,12 +12,11 @@ export class RecipeService {
 
     constructor() { }
 
+    // Find mock recipe by ID.
     public findById(id: string): Recipe | null {
-        console.log(id);
         // TODO: Make this beautiful / lodash?
         let finding = null;
         this.recipes.forEach(element => {
-            console.log(element, id)
             if (element.id === id) {
                 finding = element;
             }

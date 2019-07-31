@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesListComponent } from './recipe/list-all/recipes-list.component';
 import { RecipesEditNewComponent } from './recipe/edit/recipes-edit-new.component';
 import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
+import { NavbarComponent } from './generic-components/navbar/navbar.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
         RecipesListComponent,
         RecipesEditNewComponent,
         RecipeDetailsComponent,
+        NavbarComponent,
     ],
     imports: [
         BrowserModule,
