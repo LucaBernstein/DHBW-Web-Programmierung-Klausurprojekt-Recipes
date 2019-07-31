@@ -36,7 +36,7 @@ export class RecipeService {
 
     public saveOrAdd(r: Recipe) {
         this.deleteFromRecipes(r.id);
-        this.recipes.push(r);
+        this.recipes.splice(0, 0, r); // Append modified / created recipe to the beginning of the list to see it right at the top of the recipies.
     }
 
     public deleteFromRecipes(id: number) {
