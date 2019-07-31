@@ -10,7 +10,7 @@ import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
 const routes: Routes = [
     { path: 'recipes', component: RecipesListComponent }, // List all recipes in card style
     { path: 'recipes/:recipeId', component: RecipeDetailsComponent }, // Show details of specific recipe
-    { path: 'recipes/new', component: RecipesEditNewComponent }, // Add a new recipe
+    { path: 'recipes/add', component: RecipesEditNewComponent }, // Add a new recipe
     { path: 'recipes/edit/:recipeId', component: RecipesEditNewComponent }, // Edit an existing recipe (same view as add)
 
     // { path: 'shopping-lists', component: ShoppingListsComponent },

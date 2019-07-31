@@ -16,6 +16,7 @@ export class RecipeDetailsComponent implements OnInit {
     constructor(private route: ActivatedRoute, private recipeService: RecipeService) { }
 
     ngOnInit() {
+        // Get URL parameter for current recipe
         this.route.paramMap.subscribe(params => {
             this.recipe = this.recipeService.findById(params.get("recipeId"));
         })

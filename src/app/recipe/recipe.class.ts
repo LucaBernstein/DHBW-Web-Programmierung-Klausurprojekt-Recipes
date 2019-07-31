@@ -3,4 +3,10 @@ export class Recipe {
     name: string;
     description?: string;
     difficulty?: number;
+
+    // constructor() {
+    //     // Provide empty defaults for new recipes.
+    //     this.id = '';
+    //     this.name = '';
+    // }
 }
