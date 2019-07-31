@@ -36,9 +36,16 @@ export class RecipesEditNewComponent implements OnInit {
     }
 
     saveRecipe() {
-        this.recipe.populateWithId() // Assign new ID to recipe
-        this.recipeService.saveOrAdd(this.recipe); // Save recipe to service
+        if (this.recipe.id === null) { // Check if recipe already has an ID
+            this.recipe.populateWithId() // Assign new ID to recipe
+        }
+        this.recipeService.saveOrAdd(this.recipe); // Save (or overwrite) recipe
         this.router.navigate(['recipes', this.recipe.id]); // Go to details page after changes have been saved.
+    }
+
+    deleteRecipe(event, recipe) {
+        this.recipeService.deleteFromRecipes(recipe.id);
+        this.router.navigate(['recipes']); // Go to recipes overview page after deletion of the recipe
     }
 
 }

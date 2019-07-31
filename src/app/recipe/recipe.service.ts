@@ -39,7 +39,7 @@ export class RecipeService {
         this.recipes.push(r);
     }
 
-    private deleteFromRecipes(id: number) {
+    public deleteFromRecipes(id: number) {
         let position = null;
         for (let i = 0; i < this.recipes.length; i++) {
             if (this.recipes[i].id === id) {
