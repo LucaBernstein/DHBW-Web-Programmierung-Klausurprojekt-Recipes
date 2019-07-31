@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from '@angular/material';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RecipesListComponent } from './recipe/list-all/recipes-list.component';
 import { RecipesEditNewComponent } from './recipe/edit/recipes-edit-new.component';
 import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
@@ -30,7 +30,8 @@ import { NavbarComponent } from './generic-components/navbar/navbar.component';
         MatListModule,
         MatButtonModule,
         MatIconModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

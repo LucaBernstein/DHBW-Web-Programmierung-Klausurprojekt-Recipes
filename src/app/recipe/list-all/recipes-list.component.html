@@ -1,7 +1,7 @@
-<h2>My Recipies</h2>
-<ul class="recipies-list">
-    <li *ngFor="let recipe of recipies">
+<h2>My Recipes</h2>
+<ul class="recipes-list">
+    <li *ngFor="let recipe of recipes">
         <!--<span class="badge">{{recipe.id}}</span>-->
-        <a mat-button routerLink="/recipes/{{recipe.id}}">{{recipe.name}}</a>
+        <a mat-button routerLink="/recipes/{{recipe.id}}">{{recipe.title}}</a>
     </li>
 </ul>

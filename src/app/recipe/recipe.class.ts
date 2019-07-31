@@ -1,8 +1,15 @@
+import { RecipeService } from './recipe.service';
+
 export class Recipe {
-    id: string;
-    name: string;
+    id: number;
+    title: string;
     description?: string;
     difficulty?: number;
+
+    populateWithId(): Recipe {
+        this.id = RecipeService.getNewRecipeId();
+        return this;
+    }
 
     // constructor() {
     //     // Provide empty defaults for new recipes.

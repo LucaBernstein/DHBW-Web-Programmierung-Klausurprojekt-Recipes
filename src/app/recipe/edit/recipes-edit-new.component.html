@@ -1,5 +1,21 @@
-<p>recipes-add works!</p>
-
 <!-- We need a form here to edit and save the recipe. -->
 <!-- Creating a new one is also possible. Maybe provide a flag indicating that we are creating a new one? -->
 <!-- Check if object given is null and then automatically lay everything out for creating a new one? -->
+
+<div class="container">
+    <h1>Edit recipe: {{ recipe.name }}</h1>{{ recipe.id }}
+    <form>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input [(ngModel)]="recipe.title" type="text" class="form-control" id="title" name="title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="alterEgo">Alter Ego</label>
+            <input type="text" class="form-control" id="alterEgo">
+        </div>
+
+        <button type="submit" class="btn btn-success" (click)="saveRecipe()">Save</button>
+
+    </form>
+</div>
