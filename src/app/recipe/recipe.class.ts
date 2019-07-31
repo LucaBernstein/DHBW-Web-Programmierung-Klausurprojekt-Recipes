@@ -6,6 +6,7 @@ export class Recipe {
     description?: string;
     difficulty?: number;
     image?: string;
+    author?: string;
 
 
     populateWithId(): Recipe {

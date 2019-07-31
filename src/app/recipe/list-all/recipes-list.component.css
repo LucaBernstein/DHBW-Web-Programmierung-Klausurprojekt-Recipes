@@ -1,0 +1,13 @@
+.recipes-card {
+  max-width: 400px;
+  /* min-width: 300px; */
+  /* padding: 30px; */
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.recipe-author-image {
+  background-size: cover;
+}
