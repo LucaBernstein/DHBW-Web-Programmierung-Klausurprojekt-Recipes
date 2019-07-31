@@ -2,23 +2,34 @@
 <!-- Creating a new one is also possible. Maybe provide a flag indicating that we are creating a new one? -->
 <!-- Check if object given is null and then automatically lay everything out for creating a new one? -->
 
-<div class="container">
-    <h1>Edit recipe: {{ recipe.name }}</h1>{{ recipe.id }}
-    <form>
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input [(ngModel)]="recipe.title" type="text" class="form-control" id="title" name="title" required>
+<form class="example-form container">
+    <div fxLayout.xs="row wrap" fxLayoutAlign="space-evenly start">
+
+        <div style="padding: 1em;">
+            <mat-form-field class="example-full-width">
+                <!-- are all of these values in here really required? -->
+                <input matInput placeholder="Recipe title" [(ngModel)]="recipe.title" id="title" name="title" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Recipe image URL" [(ngModel)]="recipe.image" id="image" name="image">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Recipe description" [(ngModel)]="recipe.description"
+                    name="description"></textarea>
+            </mat-form-field>
         </div>
-
-        <!-- TODO: Add ingredients -->
-
-        <!-- TODO: Add image -->
-        <div class="form-group">
-            <label for="image">Image URL</label>
-            <input [(ngModel)]="recipe.image" type="text" class="form-control" id="image" name="image" required>
+        <div fxLayout="row" fxLayoutAlign="space-evenly start" style="padding: 1em;">
+            <!-- TODO: Add ingredients -->
+            Ingredients
+            - Button to add
+            + create new ones with overlay
+            - table to display
+            + message if no ingredients added yet and how to start.
         </div>
+    </div>
 
-        <button type="submit" class="btn btn-success" (click)="saveRecipe()">Save</button>
+    <button mat-button color="primary" type="submit" (click)="saveRecipe()">Save</button>
 
-    </form>
-</div>
+</form>

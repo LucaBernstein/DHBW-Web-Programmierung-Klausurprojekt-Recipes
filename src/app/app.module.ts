@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatCardModule, MatGridListModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatCardModule, MatGridListModule, MatInputModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -35,7 +35,9 @@ import { NavbarComponent } from './generic-components/navbar/navbar.component';
         FormsModule,
         MatCardModule,
         MatGridListModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        MatIconModule,
+        MatInputModule
     ],
     providers: [],
     bootstrap: [AppComponent]

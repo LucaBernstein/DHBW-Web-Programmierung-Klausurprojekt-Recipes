@@ -9,9 +9,9 @@ export class Recipe {
     author?: string;
 
 
-    populateWithId(): Recipe {
+    populateWithId(): number {
         this.id = RecipeService.getNewRecipeId();
-        return this;
+        return this.id;
     }
 
     // constructor() {

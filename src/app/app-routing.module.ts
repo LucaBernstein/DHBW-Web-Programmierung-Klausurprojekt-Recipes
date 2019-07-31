@@ -14,7 +14,9 @@ const routes: Routes = [
 
     // { path: 'shopping-lists', component: ShoppingListsComponent },
     // { path: 'shopping-lists/items', component: ShoppingItemsComponent },
-    // { path: '', redirectTo: '/', pathMatch: 'full' }
+
+    // { path: '/', redirectTo: '/recipes', pathMatch: 'full' } // Home is /recipes
+    { path: '', redirectTo: 'recipes', pathMatch: 'full' } // Home is /recipes
 ];
 
 @NgModule({
