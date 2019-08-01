@@ -21,6 +21,12 @@
             </mat-form-field>
         </div>
         <div style="padding: 1em;" fxFlex="auto">
+            <button mat-button color="primary" (click)="addIngredient()">
+                <mat-icon>add</mat-icon> Add Ingredient
+            </button>
+            <shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'>
+            </shopping-grouped-table>
+
             <!-- TODO: Add ingredients -->
             Ingredients
             - Button to add

@@ -12,10 +12,14 @@ export class ItemsListComponent implements OnInit {
 
     dataSource;
 
-    displayedColumns: string[] = ['name', 'unit', 'defaultQuantity', 'delete'];
+    displayedColumns: string[] = ['name', 'defaultQuantity', 'unit', 'delete'];
 
     ngOnInit() {
         this.shoppingItemsService.getAllItems().subscribe(e => this.dataSource = e);
+    }
+
+    addIngredient() {
+        // TODO: Stub
     }
 
 }
