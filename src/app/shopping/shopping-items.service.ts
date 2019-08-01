@@ -1,18 +1,8 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { RecipeIngredient, Recipe } from '../recipe/recipe.class';
-
-export interface GroupBy {
-    category: string;
-    isGroupBy: boolean;
-}
-
-export class ShoppingItem {
-    name: string;
-    unit: string;
-    defaultQuantity?: number;
-    category: string = ''; // Make all items uncategorized by default
-}
+import { INGREDIENTS } from '../recipe/mock-recipes';
+import { ShoppingItem, GroupBy } from './shopping-item.class';
 
 @Injectable({
     providedIn: 'root'
@@ -25,16 +15,15 @@ export class ShoppingItemsService {
         'Cooking Ingredients',
         'Household',
         'Books',
-        'Electronical devices'
+        'Electronical devices',
+        'Fresh',
+        'Pasta',
+        'Cooking-ingredients'
     ]
 
-    rawItems: (ShoppingItem)[] = [
-        { name: 'Flour', unit: 'grams', defaultQuantity: 500, category: 'Cooking Ingredients' },
-        { name: 'Sugar', unit: 'grams', defaultQuantity: 50, category: 'Cooking Ingredients' },
-        { name: 'Apples', unit: 'pcs', defaultQuantity: 1, category: 'Fruits' },
-        { name: 'Cooking for Dummies', unit: 'pcs', defaultQuantity: 1, category: 'Books' },
-        { name: 'Salt', unit: 'tbs', defaultQuantity: 1, category: 'Cooking Ingredients' },
-    ];
+    // TODO: Add Catrgory to cat view here for selection
+
+    rawItems: (RecipeIngredient | ShoppingItem)[] = INGREDIENTS;
 
     sortedAndGroupedItems: (ShoppingItem | GroupBy)[] = [];
 
@@ -43,6 +32,7 @@ export class ShoppingItemsService {
     }
 
     sortAndGroupItems() {
+        let tempCategories = []; // We calculate the categories dynamically for autofill
         let tempItems = [...this.rawItems]; // Copy Array
         tempItems.sort((e, f) => { // Sort by Category
             return e.category.localeCompare(f.category);
@@ -60,6 +50,8 @@ export class ShoppingItemsService {
             } else { // If a new category begins in the sorted list a header row is introduced.
                 tempResultItems.push({ category: element.category, isGroupBy: true });
                 tempResultItems.push(element);
+
+                tempCategories.push(element.category);
             }
             previousItem = element;
         });
@@ -72,7 +64,7 @@ export class ShoppingItemsService {
         return of(this.sortedAndGroupedItems);
     }
 
-    insertIntoOrUpdateItems(newItem: ShoppingItem) {
+    insertIntoOrUpdateItems(newItem: ShoppingItem): ShoppingItem {
         // At the moment for simplification it is only allowed to add categories. Then I know that they do not already exist.
         // Maybe in a continued, later version I will add removal as well :)
         // TODO: Add category removal.
@@ -90,6 +82,7 @@ export class ShoppingItemsService {
             // TODO: What to do now? Update?
         }
         this.sortAndGroupItems(); // After that produce new sorted array for observing components
+        return newItem;
     }
 
     public addOrCheckAddedIngredients(r: Recipe) {
@@ -109,7 +102,6 @@ export class ShoppingItemsService {
                     category: newIng.category,
                 } as ShoppingItem);
             }
-            console.log(this.rawItems);
             this.sortAndGroupItems();
         })
     }

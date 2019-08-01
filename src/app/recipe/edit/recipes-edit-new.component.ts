@@ -62,7 +62,7 @@ export class RecipesEditNewComponent implements OnInit {
     addIngredient(): void {
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
-            data: { message: 'Add an ingredient to this recipe', suggestions: true, recipeItem: new RecipeIngredient() }
+            data: { message: 'Add an ingredient to this recipe', suggestions: true, recipeItem: new RecipeIngredient(null) }
         });
 
         dialogRef.afterClosed().subscribe(result => {

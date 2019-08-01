@@ -1,8 +1,12 @@
-import { ShoppingItem } from './../shopping/shopping-items.service';
+import { ShoppingItem } from '../shopping/shopping-item.class';
 
 export class RecipeIngredient extends ShoppingItem {
     name: string;
     quantity: number;
+
+    constructor(obj) {
+        super(obj);
+    }
 }
 
 export class Recipe {
@@ -16,6 +20,5 @@ export class Recipe {
 
     constructor(obj) {
         obj && Object.assign(this, obj);
-
     }
 }
