@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupBy, ShoppingItem, ShoppingItemsService } from '../shopping-items.service';
+import { ShoppingItemsService } from '../shopping-items.service';
 
 @Component({
     selector: 'app-items-list',
@@ -10,14 +10,12 @@ export class ItemsListComponent implements OnInit {
 
     constructor(private shoppingItemsService: ShoppingItemsService) { }
 
+    dataSource;
+
+    displayedColumns: string[] = ['name', 'unit', 'defaultQuantity', 'addToBasket', 'delete'];
+
     ngOnInit() {
         this.shoppingItemsService.getAllItems().subscribe(e => this.dataSource = e);
     }
 
-    dataSource;
-    displayedColumns: string[] = ['name', 'unit', 'defaultQuantity', 'addToBasket', 'delete'];
-
-    isGroup(index, item): boolean {
-        return item.isGroupBy;
-    }
 }

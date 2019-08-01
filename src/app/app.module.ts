@@ -15,6 +15,7 @@ import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
 import { NavbarComponent } from './generic-components/navbar/navbar.component';
 import { ItemsListComponent } from './shopping/items-list/items-list.component';
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
+import { GroupedTableComponent } from './shopping/grouped-table/grouped-table.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.co
         NavbarComponent,
         ItemsListComponent,
         ShoppingListComponent,
+        GroupedTableComponent,
     ],
     imports: [
         BrowserModule,
