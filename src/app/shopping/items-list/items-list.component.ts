@@ -12,7 +12,7 @@ export class ItemsListComponent implements OnInit {
 
     dataSource;
 
-    displayedColumns: string[] = ['name', 'unit', 'defaultQuantity', 'addToBasket', 'delete'];
+    displayedColumns: string[] = ['name', 'unit', 'defaultQuantity', 'delete'];
 
     ngOnInit() {
         this.shoppingItemsService.getAllItems().subscribe(e => this.dataSource = e);
