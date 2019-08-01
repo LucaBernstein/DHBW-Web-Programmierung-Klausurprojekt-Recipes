@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+import { RecipeIngredient } from '../recipe/recipe.class';
 
 export interface GroupBy {
     category: string;
     isGroupBy: boolean;
 }
 
-export interface ShoppingItem {
+export class ShoppingItem {
     name: string;
     unit: string;
     defaultQuantity?: number;
-    category: string;
+    category: string = ''; // Make all items uncategorized by default
 }
 
 @Injectable({
@@ -51,9 +52,12 @@ export class ShoppingItemsService {
         let previousItem; // Remember previous item to know where a new category starts.
 
         tempItems.forEach(element => { // Check if new category started at each item
+            if (element.category === '') { // By default all uncategorized items are marked accordingly
+                element.category = '*Uncategorized';
+            }
             if (previousItem !== undefined && element.category === previousItem.category) {
                 tempResultItems.push(element);
-            } else {
+            } else { // If a new category begins in the sorted list a header row is introduced.
                 tempResultItems.push({ category: element.category, isGroupBy: true });
                 tempResultItems.push(element);
             }
@@ -86,5 +90,25 @@ export class ShoppingItemsService {
             // TODO: What to do now? Update?
         }
         this.sortAndGroupItems(); // After that produce new sorted array for observing components
+    }
+
+    public addOrCheckAddedIngredient(newIng: RecipeIngredient) {
+        let found = false;
+        this.rawItems.forEach(e => {
+            if (e.name == newIng.name) {
+                found = true;
+                e.unit = newIng.unit;
+            }
+        })
+        if (!found) {
+            this.rawItems.push({
+                name: newIng.name,
+                unit: 'grams',
+                defaultQuantity: newIng.quantity,
+                category: newIng.category,
+            } as ShoppingItem);
+        }
+        console.log(this.rawItems);
+        this.sortAndGroupItems();
     }
 }

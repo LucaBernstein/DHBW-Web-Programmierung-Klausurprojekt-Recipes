@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatCardModule, MatGridListModule, MatInputModule, MatTableModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatCardModule, MatGridListModule, MatInputModule, MatTableModule, MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -15,7 +15,8 @@ import { RecipeDetailsComponent } from './recipe/show/recipe-details.component';
 import { NavbarComponent } from './generic-components/navbar/navbar.component';
 import { ItemsListComponent } from './shopping/items-list/items-list.component';
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
-import { GroupedTableComponent } from './shopping/grouped-table/grouped-table.component';
+import { GroupedTableComponent } from './generic-components/ingredients/grouped-table/grouped-table.component';
+import { AddDialogComponent } from './generic-components/ingredients/add-dialog/add-dialog.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { GroupedTableComponent } from './shopping/grouped-table/grouped-table.co
         ItemsListComponent,
         ShoppingListComponent,
         GroupedTableComponent,
+        AddDialogComponent,
     ],
     imports: [
         BrowserModule,
@@ -44,9 +46,11 @@ import { GroupedTableComponent } from './shopping/grouped-table/grouped-table.co
         FlexLayoutModule,
         MatIconModule,
         MatInputModule,
-        MatTableModule
+        MatTableModule,
+        MatDialogModule,
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [AddDialogComponent]
 })
 export class AppModule { }
