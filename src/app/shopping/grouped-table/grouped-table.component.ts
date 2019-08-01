@@ -12,7 +12,7 @@ export class GroupedTableComponent implements OnInit {
     ngOnInit() {
     }
 
-    @Input() dataSource;
+    @Input() dataSource: [];
     @Input() displayedColumns;
 
     isGroup(index, item): boolean {
