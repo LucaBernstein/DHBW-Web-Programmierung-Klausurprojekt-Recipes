@@ -1,21 +1,23 @@
-<button mat-button color="primary" (click)="editRecipe()" style="float:right;">
-    <mat-icon>edit</mat-icon> Edit recipe
-</button>
-<h2>{{recipe.title}}</h2><small>by {{ recipe.author }}</small>
-<div fxLayout.sm="row" fxLayout.xs="row wrap" fxLayoutAlign="start start">
-    <div fxFlex="auto">
-        <img *ngIf="recipe.image" mat-card-image src="{{ recipe.image }}" alt="Photo of recipe {{ recipe.title }}"
-            style="max-width: 500px;">
-        <div *ngIf="dataSource?.value?.length > 0">
-            <span>
-                <strong>Ingredients:</strong>
-            </span>
-            <shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'>
-            </shopping-grouped-table>
+<div style="padding: 1em;">
+    <button mat-button color="primary" (click)="editRecipe()" style="float:right;">
+        <mat-icon>edit</mat-icon> Edit recipe
+    </button>
+    <h2>{{recipe.title}}</h2><small>by {{ recipe.author }}</small>
+    <div fxLayout.sm="row" fxLayout.xs="row wrap" fxLayoutAlign="start start">
+        <div fxFlex="auto">
+            <img *ngIf="recipe.image" mat-card-image src="{{ recipe.image }}" alt="Photo of recipe {{ recipe.title }}"
+                style="max-width: 500px;">
+            <div *ngIf="dataSource?.value?.length > 0">
+                <span>
+                    <strong>Ingredients:</strong>
+                </span>
+                <shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'>
+                </shopping-grouped-table>
+            </div>
         </div>
-    </div>
 
-    <div fxFlex="auto">
-        <p>{{ recipe.description }}</p>
+        <div fxFlex="auto">
+            <p>{{ recipe.description }}</p>
+        </div>
     </div>
 </div>
