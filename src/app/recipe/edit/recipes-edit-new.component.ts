@@ -5,6 +5,7 @@ import { Recipe, RecipeIngredient } from '../recipe.class';
 import { AddDialogComponent } from 'src/app/generic-components/ingredients/add-dialog/add-dialog.component';
 import { MatDialog, MatTableDataSource } from '@angular/material';
 import { ShoppingItemsService } from 'src/app/shopping/shopping-items.service';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-recipes-edit-new',
@@ -24,6 +25,7 @@ export class RecipesEditNewComponent implements OnInit {
         private router: Router,
         public dialog: MatDialog,
         private shoppingItemsService: ShoppingItemsService,
+        private _location: Location,
     ) { }
 
     ngOnInit() {
@@ -74,9 +76,6 @@ export class RecipesEditNewComponent implements OnInit {
                 this.dataSource.data = data;
             }
         });
-
-        this.recipe.title = 'Buhuuuuu';
-
     }
 
     addIngredientToIngredientsList(newIng: RecipeIngredient) { // Calculate sums for equal ingredients instead of adding both separately
@@ -91,5 +90,9 @@ export class RecipesEditNewComponent implements OnInit {
         if (!found) {
             this.ingredients.push(newIng);
         }
+    }
+
+    cancelEditing() {
+        this._location.back(); // Don't save, just go back.
     }
 }

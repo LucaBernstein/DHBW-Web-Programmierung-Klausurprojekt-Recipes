@@ -19,6 +19,17 @@
                 <textarea matInput placeholder="Recipe description" [(ngModel)]="recipe.description"
                     name="description"></textarea>
             </mat-form-field>
+
+            <div>
+                <button mat-button color="primary" type="submit" (click)="saveRecipe()" style="float:right;">
+                    <mat-icon>save</mat-icon> Save
+                </button>
+
+                <button mat-button color="error" type="submit" (click)="cancelEditing()">
+                    <mat-icon>backspace</mat-icon> Cancel editing and go back
+                </button>
+            </div>
+
         </div>
         <div style="padding: 1em;" fxFlex="auto">
             <button mat-button color="primary" (click)="addIngredient()">
@@ -28,9 +39,5 @@
             </shopping-grouped-table>
         </div>
     </div>
-
-    <button mat-button color="primary" type="submit" (click)="saveRecipe()">
-        <mat-icon>save</mat-icon> Save
-    </button>
 
 </form>
