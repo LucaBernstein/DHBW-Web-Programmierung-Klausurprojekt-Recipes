@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { RecipeIngredient } from '../recipe/recipe.class';
+import { RecipeIngredient, Recipe } from '../recipe/recipe.class';
 
 export interface GroupBy {
     category: string;
@@ -92,23 +92,25 @@ export class ShoppingItemsService {
         this.sortAndGroupItems(); // After that produce new sorted array for observing components
     }
 
-    public addOrCheckAddedIngredient(newIng: RecipeIngredient) {
-        let found = false;
-        this.rawItems.forEach(e => {
-            if (e.name == newIng.name) {
-                found = true;
-                e.unit = newIng.unit;
+    public addOrCheckAddedIngredients(r: Recipe) {
+        r.ingredients.forEach(newIng => {
+            let found = false;
+            this.rawItems.forEach(e => {
+                if (e.name == newIng.name) {
+                    found = true;
+                    e.unit = newIng.unit;
+                }
+            })
+            if (!found) {
+                this.rawItems.push({
+                    name: newIng.name,
+                    unit: 'grams',
+                    defaultQuantity: newIng.quantity,
+                    category: newIng.category,
+                } as ShoppingItem);
             }
+            console.log(this.rawItems);
+            this.sortAndGroupItems();
         })
-        if (!found) {
-            this.rawItems.push({
-                name: newIng.name,
-                unit: 'grams',
-                defaultQuantity: newIng.quantity,
-                category: newIng.category,
-            } as ShoppingItem);
-        }
-        console.log(this.rawItems);
-        this.sortAndGroupItems();
     }
 }

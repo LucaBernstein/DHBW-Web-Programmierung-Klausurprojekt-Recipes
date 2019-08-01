@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'shopping-grouped-table',
@@ -12,7 +13,7 @@ export class GroupedTableComponent implements OnInit {
     ngOnInit() {
     }
 
-    @Input() dataSource: [];
+    @Input() dataSource;
     @Input() displayedColumns;
 
     isGroup(index, item): boolean {

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { Recipe } from './recipe.class';
 import { RECIPES } from './mock-recipes'
 import { of, Observable } from 'rxjs';
+import { Recipe } from './recipe.class';
 
 @Injectable({
     providedIn: 'root'
@@ -52,7 +52,7 @@ export class RecipeService {
         }
     }
 
-    public static getNewRecipeId() {
+    public getNewRecipeId() {
         return RecipeService.currentId++;
     }
 

@@ -1,4 +1,3 @@
-import { RecipeService } from './recipe.service';
 import { ShoppingItem } from './../shopping/shopping-items.service';
 
 export class RecipeIngredient extends ShoppingItem {
@@ -15,11 +14,6 @@ export class Recipe {
     author?: string;
     ingredients?: RecipeIngredient[] = [];
 
-    populateWithId(): number {
-        this.id = RecipeService.getNewRecipeId();
-        return this.id;
-    }
-
     addIngredient(newIng: RecipeIngredient): Recipe {
         let found = false;
         for (let i = 0; i < this.ingredients.length; i++) {
@@ -32,5 +26,10 @@ export class Recipe {
             this.ingredients.push(newIng);
         }
         return this;
+    }
+
+    constructor(obj) {
+        obj && Object.assign(this, obj);
+
     }
 }

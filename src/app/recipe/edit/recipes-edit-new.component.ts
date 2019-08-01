@@ -5,6 +5,7 @@ import { Recipe, RecipeIngredient } from '../recipe.class';
 import { AddDialogComponent } from 'src/app/generic-components/ingredients/add-dialog/add-dialog.component';
 import { MatDialog } from '@angular/material';
 import { ShoppingItemsService } from 'src/app/shopping/shopping-items.service';
+import { of } from 'rxjs';
 
 @Component({
     selector: 'app-recipes-edit-new',
@@ -34,18 +35,21 @@ export class RecipesEditNewComponent implements OnInit {
             let recipeIdParam = params.get("recipeId");
             if (recipeIdParam === 'new') { // TODO: Extract magic string
                 // Provide new recipe object to fill.
-                this.recipe = new Recipe();
-                this.recipe.populateWithId()
+                this.recipe = new Recipe(null);
+                this.recipeService.getNewRecipeId();
             } else {
                 // Fill form with data of existing recipe.
-                this.recipe = this.recipeService.findById(parseInt(recipeIdParam));
+                this.recipe = this.recipeService.findById(parseInt(recipeIdParam)) as Recipe;
             }
-        })
+        });
+        console.log(this.recipe);
+        this.dataSource = of(this.recipe.ingredients);
     }
 
     saveRecipe() {
         this.recipeService.saveOrAdd(this.recipe); // Save (or overwrite) recipe
         this.router.navigate(['recipes', this.recipe.id]); // Go to details page after changes have been saved.
+        this.shoppingItemsService.addOrCheckAddedIngredients(this.recipe);
     }
 
     deleteRecipe(event, recipe) {
@@ -60,10 +64,13 @@ export class RecipesEditNewComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log(JSON.stringify(result));
-            this.recipeService.saveOrAdd(this.recipe.addIngredient(result));
-            this.shoppingItemsService.addOrCheckAddedIngredient(result);
+            if (result) {
+                console.log(JSON.stringify(result));
+                this.recipe.addIngredient(result); // Only save to temporary ingredient object
+            }
         });
+        console.log(this.dataSource);
+        // this.dataSource = this.recipe.ingredients;
     }
 
 }
