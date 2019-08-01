@@ -17,7 +17,7 @@ export class RecipesEditNewComponent implements OnInit {
     recipe: Recipe; // We only work on a temp object. Saving persists data, else it is dismissed.
     ingredients: RecipeIngredient[];
     dataSource;
-    displayedColumns = ['name'];
+    displayedColumns = ['name', 'quantity', 'unit'];
 
     constructor(
         private route: ActivatedRoute,
@@ -36,7 +36,8 @@ export class RecipesEditNewComponent implements OnInit {
             if (recipeIdParam === 'new') { // TODO: Extract magic string
                 // Provide new recipe object to fill.
                 this.recipe = new Recipe(null);
-                this.recipeService.getNewRecipeId();
+                this.recipe.id = this.recipeService.getNewRecipeId();
+                this.ingredients = [];
             } else {
                 // Fill form with data of existing recipe. Copy it so state is not persisted.
                 this.recipe = new Recipe(this.recipeService.findById(parseInt(recipeIdParam)));
