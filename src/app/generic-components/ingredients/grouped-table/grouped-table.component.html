@@ -57,6 +57,7 @@
 
 </table>
 <br />
-<span *ngIf="!dataSource">
+
+<span *ngIf="(dataSource && dataSource?.value?.length == 0) || !dataSource">
     <strong>No items available yet. Please start by adding some.</strong>
 </span>
