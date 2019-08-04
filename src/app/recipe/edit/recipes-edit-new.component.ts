@@ -43,6 +43,9 @@ export class RecipesEditNewComponent implements OnInit {
                 this.recipe = new Recipe(this.recipeService.findById(parseInt(recipeIdParam)));
                 this.ingredients = [...this.recipe.ingredients]; // Copy ingredients in temp array.
             }
+            if (this.recipe === null) {
+                this.router.navigate(['404-not-found']); // Redirect to /404 if recipe is not found at given ID
+            }
         });
         this.dataSource = new MatTableDataSource(this.ingredients);
     }

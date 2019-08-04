@@ -26,6 +26,9 @@ export class RecipeDetailsComponent implements OnInit {
         this.route.paramMap.subscribe(params => {
             this.recipe = this.recipeService.findById(parseInt(params.get("recipeId")));
         })
+        if (this.recipe === null) {
+            this.router.navigate(['404-not-found']); // Redirect to /404 if recipe is not found at given ID
+        }
         this.dataSource = of(this.recipe.ingredients);
     }
 

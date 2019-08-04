@@ -17,6 +17,7 @@ import { ItemsListComponent } from './shopping/items-list/items-list.component';
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
 import { GroupedTableComponent } from './generic-components/ingredients/grouped-table/grouped-table.component';
 import { AddDialogComponent } from './generic-components/ingredients/add-dialog/add-dialog.component';
+import { NotFoundComponent } from './generic-components/not-found/not-found.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { AddDialogComponent } from './generic-components/ingredients/add-dialog/
         ShoppingListComponent,
         GroupedTableComponent,
         AddDialogComponent,
+        NotFoundComponent,
     ],
     imports: [
         BrowserModule,
