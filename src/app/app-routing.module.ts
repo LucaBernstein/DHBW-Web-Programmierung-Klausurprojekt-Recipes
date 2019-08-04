@@ -21,7 +21,7 @@ const routes: Routes = [
     // { path: '/', redirectTo: '/recipes', pathMatch: 'full' } // Home is /recipes
     { path: '', redirectTo: 'recipes', pathMatch: 'full' }, // Home is /recipes
 
-    { path: '**', component: NotFoundComponent }
+    { path: '**', component: NotFoundComponent } // Redirect all requests that did not match anything before to a 404 NOT FOUND page
 ];
 
 @NgModule({

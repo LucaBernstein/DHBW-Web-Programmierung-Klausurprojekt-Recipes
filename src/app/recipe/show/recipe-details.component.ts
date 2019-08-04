@@ -36,4 +36,9 @@ export class RecipeDetailsComponent implements OnInit {
         this.router.navigate(['recipes', 'edit', this.recipe.id]); // Go to recipes overview page after deletion of the recipe
     }
 
+    deleteRecipe(event, recipe) {
+        this.recipeService.deleteFromRecipes(recipe.id);
+        this.router.navigate(['recipes']); // Go to recipes overview page after deletion of the recipe
+    }
+
 }

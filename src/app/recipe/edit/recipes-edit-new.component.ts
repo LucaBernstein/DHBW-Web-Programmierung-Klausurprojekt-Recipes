@@ -57,11 +57,6 @@ export class RecipesEditNewComponent implements OnInit {
         this.shoppingItemsService.addOrCheckAddedIngredients(this.recipe);
     }
 
-    deleteRecipe(event, recipe) {
-        this.recipeService.deleteFromRecipes(recipe.id);
-        this.router.navigate(['recipes']); // Go to recipes overview page after deletion of the recipe
-    }
-
     addIngredient(): void {
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
@@ -70,7 +65,6 @@ export class RecipesEditNewComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                console.log(JSON.stringify(result));
                 this.addIngredientToIngredientsList(result); // Only save to temporary ingredient object
 
                 // The following two lines are a workaround to some kind of bug: Before, Ingredients were not added to the table instantly

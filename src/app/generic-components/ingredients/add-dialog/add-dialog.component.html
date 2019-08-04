@@ -2,14 +2,22 @@
 <div mat-dialog-content>
     <p>What's the name of the ingredient to add?</p>
     <mat-form-field>
-        <input matInput [(ngModel)]="data.recipeItem.name">
+        <input cdkFocusInitial matInput [(ngModel)]="data.recipeItem.name">
     </mat-form-field>
     <p>How much of it would you like to add?</p>
     <mat-form-field>
         <input matInput type="number" [(ngModel)]="data.recipeItem.quantity">
     </mat-form-field>
+    <p>Unit</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.recipeItem.unit">
+    </mat-form-field>
+    <p>Category</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.recipeItem.category">
+    </mat-form-field>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="data.recipeItem" cdkFocusInitial>Add</button>
+    <button mat-button [mat-dialog-close]="data.recipeItem">Add</button>
 </div>

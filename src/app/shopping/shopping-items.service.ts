@@ -94,15 +94,25 @@ export class ShoppingItemsService {
                     e.unit = newIng.unit;
                 }
             })
-            if (!found) {
+            if (!found) { // If ingredient not yet exists on list, add it.
                 this.rawItems.push({
                     name: newIng.name,
-                    unit: 'grams',
+                    unit: newIng.unit,
                     defaultQuantity: newIng.quantity,
                     category: newIng.category,
                 } as ShoppingItem);
             }
             this.sortAndGroupItems();
         })
+    }
+
+    public deleteIngredient(ing: RecipeIngredient) {
+        for (let i = 0; i < this.rawItems.length; i++) {
+            if (this.rawItems[i].name == ing.name) {
+                this.rawItems.splice(i, 1); // Remove that ingredient at the given position.
+                break;
+            }
+        }
+        this.sortAndGroupItems();
     }
 }
