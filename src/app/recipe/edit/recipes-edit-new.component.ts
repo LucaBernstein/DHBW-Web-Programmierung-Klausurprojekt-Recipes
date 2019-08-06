@@ -54,7 +54,7 @@ export class RecipesEditNewComponent implements OnInit {
         this.recipe.ingredients = this.ingredients; // Persist (modified) ingredients on recipe.
         this.recipeService.saveOrAdd(this.recipe); // Save (or overwrite) recipe
         this.router.navigate(['recipes', this.recipe.id]); // Go to details page after changes have been saved.
-        this.shoppingItemsService.addOrCheckAddedIngredients(this.recipe);
+        this.shoppingItemsService.addOrCheckAddedIngredientsForIngredientsList(this.recipe);
     }
 
     addIngredient(): void {

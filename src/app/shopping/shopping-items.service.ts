@@ -23,8 +23,8 @@ export class ShoppingItemsService {
 
     // TODO: Add Catrgory to cat view here for selection
 
+    // TODO: Use Key-Value-Store instead?
     rawItems: (RecipeIngredient | ShoppingItem)[] = INGREDIENTS;
-
     sortedAndGroupedItems: (ShoppingItem | GroupBy)[] = [];
 
     constructor() {
@@ -85,25 +85,29 @@ export class ShoppingItemsService {
         return newItem;
     }
 
-    public addOrCheckAddedIngredients(r: Recipe) {
+    public addOrCheckAddedIngredientsForIngredientsList(r: Recipe) {
         r.ingredients.forEach(newIng => {
-            let found = false;
-            this.rawItems.forEach(e => {
-                if (e.name == newIng.name) {
-                    found = true;
-                    e.unit = newIng.unit;
-                }
-            })
-            if (!found) { // If ingredient not yet exists on list, add it.
-                this.rawItems.push({
-                    name: newIng.name,
-                    unit: newIng.unit,
-                    defaultQuantity: newIng.quantity,
-                    category: newIng.category,
-                } as ShoppingItem);
-            }
-            this.sortAndGroupItems();
+            this.addIngredientToIngredientsList(newIng);
         })
+    }
+
+    public addIngredientToIngredientsList(newIng: RecipeIngredient) {
+        let found = false;
+        this.rawItems.forEach(e => {
+            if (e.name == newIng.name) {
+                found = true;
+                e.unit = newIng.unit;
+                // TODO: Do I have to set each unit individually? Why not assign new object in Key-Value-Store?
+            }
+        })
+        if (!found) { // If ingredient not yet exists on list, add it.
+            // Set default quantity to qtd if did not exist yet.
+            if (!newIng.defaultQuantity) { // But only if no default quantity has been set already.
+                newIng.defaultQuantity = newIng.quantity;
+            }
+            this.rawItems.push(newIng);
+        }
+        this.sortAndGroupItems();
     }
 
     public deleteIngredient(ing: RecipeIngredient) {
