@@ -11,6 +11,9 @@
                 <span>
                     <strong>Ingredients:</strong>
                 </span>
+                <button mat-button color="primary" (click)="addIngredientsToShoppingCart(recipe)">
+                    <mat-icon>add</mat-icon> Add all ingredients to shopping cart
+                </button>
                 <shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'>
                 </shopping-grouped-table>
             </div>

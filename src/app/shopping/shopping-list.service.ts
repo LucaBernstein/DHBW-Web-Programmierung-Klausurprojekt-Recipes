@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item, GroupBy } from './shopping-item.class';
 import { of, Observable } from 'rxjs';
-import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPosition as updateItemAtPosition, calculateCategories } from '../helpers/sortedItemLists'
+import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPositionAndUpdateQuantity, calculateCategories } from '../helpers/sortedItemLists'
 
 @Injectable({
     providedIn: 'root'
@@ -27,8 +27,8 @@ export class ShoppingListService {
 
     addItemToItemsList(newI: Item) {
         let i = findItemPosition(this.rawItems, newI.name);
-        if (i > 0) { // Item has been found
-            updateItemAtPosition(this.rawItems, newI, i);
+        if (i >= 0) { // Item has been found
+            insertItemAfterPositionAndUpdateQuantity(this.rawItems, newI, i);
         } else { // We have a new item
             if (!newI.defaultQuantity) { // But only if no default quantity has been set already.
                 newI.defaultQuantity = newI.quantity; // A new component's quantity is also set as it's default quantity.

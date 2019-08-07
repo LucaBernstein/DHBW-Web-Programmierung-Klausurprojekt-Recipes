@@ -55,7 +55,10 @@ function findItemPosition(list: Item[], name: string): number {
 }
 export { findItemPosition };
 
-function insertItemAfterPosition(list: Item[], newIng: Item, i: number) {
-    list.splice(i, 1, newIng);
+function insertItemAfterPositionAndUpdateQuantity(list: Item[], newIng: Item, i: number) {
+    let copiedNewItem = new Item(newIng);
+    let oldQuantity = list[i].quantity;
+    copiedNewItem.quantity += oldQuantity;
+    list.splice(i, 1, copiedNewItem);
 }
-export { insertItemAfterPosition };
+export { insertItemAfterPositionAndUpdateQuantity };

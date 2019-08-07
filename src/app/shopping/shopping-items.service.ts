@@ -3,7 +3,7 @@ import { of, Observable } from 'rxjs';
 import { Recipe } from '../recipe/recipe.class';
 import { INGREDIENTS } from '../recipe/mock-recipes';
 import { GroupBy, Item } from './shopping-item.class';
-import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPosition as updateItemAtPosition, calculateCategories } from '../helpers/sortedItemLists'
+import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPositionAndUpdateQuantity, calculateCategories } from '../helpers/sortedItemLists'
 
 @Injectable({
     providedIn: 'root'
@@ -40,8 +40,8 @@ export class ShoppingItemsService {
 
     public addIngredientToIngredientsList(newIng: Item) {
         let i = findItemPosition(this.rawItems, newIng.name);
-        if (i > 0) { // Item has been found
-            updateItemAtPosition(this.rawItems, newIng, i);
+        if (i >= 0) { // Item has been found
+            insertItemAfterPositionAndUpdateQuantity(this.rawItems, newIng, i);
         } else { // We have a new item
             if (!newIng.defaultQuantity) { // But only if no default quantity has been set already.
                 newIng.defaultQuantity = newIng.quantity; // A new component's quantity is also set as it's default quantity.

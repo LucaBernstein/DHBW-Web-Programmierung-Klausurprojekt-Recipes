@@ -3,6 +3,7 @@ import { Recipe } from '../recipe.class';
 import { ActivatedRoute, Router } from "@angular/router";
 import { RecipeService } from './../recipe.service'
 import { of } from 'rxjs';
+import { ShoppingListService } from 'src/app/shopping/shopping-list.service';
 
 @Component({
     selector: 'app-recipe-details',
@@ -15,10 +16,13 @@ export class RecipeDetailsComponent implements OnInit {
     dataSource;
     displayedColumns = ['name', 'quantity', 'unit'];
 
+    lastAddedIngredientsToShoppingList; // For undo-operation to know, what to remove.
+
     constructor(
         private route: ActivatedRoute,
         private recipeService: RecipeService,
-        private router: Router
+        private router: Router,
+        private shoppingListService: ShoppingListService
     ) { }
 
     ngOnInit() {
@@ -39,6 +43,22 @@ export class RecipeDetailsComponent implements OnInit {
     deleteRecipe(event, recipe) {
         this.recipeService.deleteFromRecipes(recipe.id);
         this.router.navigate(['recipes']); // Go to recipes overview page after deletion of the recipe
+    }
+
+    addIngredientsToShoppingCart(recipe: Recipe) {
+        this.lastAddedIngredientsToShoppingList = recipe.ingredients;
+        recipe.ingredients.forEach(element => {
+            this.shoppingListService.addItemToItemsList(element);
+        });
+        this.displaySnackbarForInfoAndUndo();
+    }
+
+    undoAddIngredientsToShoppingList() {
+        // TODO: Stub
+    }
+
+    displaySnackbarForInfoAndUndo() {
+        // TODO: Stub
     }
 
 }
