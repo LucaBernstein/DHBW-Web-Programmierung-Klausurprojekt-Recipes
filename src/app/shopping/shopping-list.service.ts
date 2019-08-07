@@ -6,7 +6,7 @@ import { Item } from './shopping-item.class';
 })
 export class ShoppingListService {
 
-    rawItems: Item[] = [];
+    rawItems: Item[];
 
     constructor() { }
 }

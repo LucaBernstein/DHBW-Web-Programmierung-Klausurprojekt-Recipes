@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { Recipe } from '../recipe/recipe.class';
 import { INGREDIENTS } from '../recipe/mock-recipes';
 import { GroupBy, Item } from './shopping-item.class';
-import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPosition as updateItemAtPosition } from './../helpers/sortedLists'
+import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPosition as updateItemAtPosition, calculateCategories } from '../helpers/sortedItemLists'
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +11,7 @@ import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAf
 export class ShoppingItemsService {
 
     // TODO: Add Catrgory to cat view here for selection
-    categories: string[] = []
+    categories: string[];
 
     // TODO: Use Key-Value-Store instead?
     rawItems: Item[] = INGREDIENTS;
@@ -21,9 +21,15 @@ export class ShoppingItemsService {
         this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
     }
 
-    getAllItems() {
+    getAllItems(): Observable<(Item | GroupBy)[]> {
         this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems); // First sort and group items, then return
         return of(this.sortedAndGroupedItems);
+    }
+
+    getAllCategories(): string[] {
+        // Lazy calculate categories
+        this.categories = calculateCategories(this.sortedAndGroupedItems);
+        return this.categories;
     }
 
     public addOrCheckAddedIngredientsForIngredientsList(r: Recipe) {
