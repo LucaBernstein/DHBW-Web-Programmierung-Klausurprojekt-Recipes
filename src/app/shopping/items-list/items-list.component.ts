@@ -48,7 +48,6 @@ export class ItemsListComponent implements OnInit {
                 console.log(result);
                 this.shoppingItemsService.addIngredientToIngredientsList(result);
                 this.refreshTable();
-                this.refreshTable();
             }
         });
     }

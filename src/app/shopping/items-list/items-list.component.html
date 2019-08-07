@@ -2,6 +2,6 @@
     <mat-icon>add</mat-icon> Add Ingredient
 </button>
 <shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'></shopping-grouped-table>
-<span *ngIf="dataSource?.value?.length === 0">
+<span *ngIf="dataSource._data._value == undefined || dataSource?._data?._value?.length === 0">
     <strong>No items available yet. Please start by adding some.</strong>
 </span>

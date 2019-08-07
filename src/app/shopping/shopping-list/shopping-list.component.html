@@ -1,1 +1,7 @@
-<p>shopping-list works!</p>
+<button mat-button color="primary" (click)="addItem()">
+    <mat-icon>add</mat-icon> Add Item
+</button>
+<shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'></shopping-grouped-table>
+<span *ngIf="dataSource.value == undefined || dataSource?.value?.length === 0">
+    <strong>No items available yet. Please start by adding some.</strong>
+</span>
