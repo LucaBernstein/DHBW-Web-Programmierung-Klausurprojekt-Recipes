@@ -51,4 +51,8 @@ export class ShoppingListComponent implements OnInit {
         });
     }
 
+    deleteItem() {
+        this.shoppingListService
+    }
+
 }

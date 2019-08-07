@@ -11,15 +11,15 @@ import { Item } from '../shopping-item.class';
 })
 export class ItemsListComponent implements OnInit {
 
-    constructor(
-        private shoppingItemsService: ShoppingItemsService,
-        public dialog: MatDialog
-    ) { }
-
     ingredients;
     dataSource;
 
     displayedColumns: string[] = ['name', 'defaultQuantity', 'unit', 'delete'];
+
+    constructor(
+        private shoppingItemsService: ShoppingItemsService,
+        public dialog: MatDialog
+    ) { }
 
     ngOnInit() {
         this.refreshTable();
@@ -45,11 +45,23 @@ export class ItemsListComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                console.log(result);
                 this.shoppingItemsService.addIngredientToIngredientsList(result);
                 this.refreshTable();
             }
         });
+    }
+
+    bindEmitter(event) {
+        if (event.eventName === 'delete') {
+            this.deleteIngredient(event.item);
+        } else {
+            console.log(`Binding for event '${event.eventName}' not defined yet.`);
+        }
+    }
+
+    deleteIngredient(ingredient) {
+        this.shoppingItemsService.deleteIngredient(ingredient);
+        this.refreshTable();
     }
 
 }
