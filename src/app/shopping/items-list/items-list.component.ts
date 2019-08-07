@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingItemsService } from '../shopping-items.service';
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { AddDialogComponent } from 'src/app/generic-components/ingredients/add-dialog/add-dialog.component';
-import { RecipeIngredient } from 'src/app/recipe/recipe.class';
+import { Item } from '../shopping-item.class';
 
 @Component({
     selector: 'app-items-list',
@@ -40,7 +40,7 @@ export class ItemsListComponent implements OnInit {
         // TODO: Avoid duplicate from recipe add-ingredient!
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
-            data: { message: 'Add an ingredient', suggestions: true, recipeItem: new RecipeIngredient(null), onlyAddIngredient: true }
+            data: { message: 'Add an ingredient', suggestions: true, recipeItem: new Item(null), onlyAddIngredient: true }
         });
 
         dialogRef.afterClosed().subscribe(result => {

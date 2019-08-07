@@ -3,11 +3,13 @@ export interface GroupBy {
     isGroupBy: boolean;
 }
 
-export class ShoppingItem {
+export class Item {
     name: string;
     unit: string;
+    category: string; // TODO: Make all items uncategorized by default
+    quantity: number;
+
     defaultQuantity?: number;
-    category: string = ''; // Make all items uncategorized by default
 
     constructor(obj) {
         obj && Object.assign(this, obj);

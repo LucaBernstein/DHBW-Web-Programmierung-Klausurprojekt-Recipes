@@ -1,6 +1,6 @@
-import { ShoppingItem } from "../shopping/shopping-item.class";
+import { Item } from '../shopping/shopping-item.class';
 
-function sortAndGroupItems(rawItemsList: ShoppingItem[]): any[] {
+function sortAndGroupItems(rawItemsList: Item[]): any[] {
     let tempCategories = []; // We calculate the categories dynamically for autofill
     let tempItems = [...rawItemsList]; // Copy Array
     tempItems.sort((e, f) => { // Sort by Category
@@ -28,3 +28,24 @@ function sortAndGroupItems(rawItemsList: ShoppingItem[]): any[] {
     return [...tempResultItems]; // Write back sorted array.
 }
 export { sortAndGroupItems };
+
+function deleteItemAtPosition(list: any[], pos: number): any[] {
+    list.splice(pos, 1); // Remove that ingredient at the given position.
+    return list;
+}
+export { deleteItemAtPosition };
+
+function findItemPosition(list: Item[], name: string): number {
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].name === name) { // Compare for name as this is unique for my ingredients
+            return i;
+        }
+    }
+    return -1;
+}
+export { findItemPosition };
+
+function insertItemAfterPosition(list: Item[], newIng: Item, i: number) {
+    list.splice(i, 0, newIng);
+}
+export { insertItemAfterPosition };

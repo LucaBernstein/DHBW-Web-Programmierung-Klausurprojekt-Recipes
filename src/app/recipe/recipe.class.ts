@@ -1,13 +1,4 @@
-import { ShoppingItem } from '../shopping/shopping-item.class';
-
-export class RecipeIngredient extends ShoppingItem {
-    name: string;
-    quantity: number;
-
-    constructor(obj) {
-        super(obj);
-    }
-}
+import { Item } from '../shopping/shopping-item.class';
 
 export class Recipe {
     id: number;
@@ -16,7 +7,7 @@ export class Recipe {
     difficulty?: number;
     image?: string;
     author?: string;
-    ingredients?: RecipeIngredient[] = [];
+    ingredients?: Item[] = [];
 
     constructor(obj) {
         obj && Object.assign(this, obj);

@@ -1,37 +1,37 @@
-import { Recipe, RecipeIngredient } from './recipe.class';
-import { ShoppingItem } from '../shopping/shopping-item.class';
+import { Recipe } from './recipe.class';
+import { Item } from '../shopping/shopping-item.class';
 
-const i_apples = new ShoppingItem({ name: 'Apples', unit: 'pcs', defaultQuantity: 1, category: 'Fruits' })
-const i_book = new ShoppingItem({ name: 'Cooking for Dummies', unit: 'pcs', defaultQuantity: 1, category: 'Books' })
-const i_flour = new RecipeIngredient({
+const i_apples = new Item({ name: 'Apples', unit: 'pcs', defaultQuantity: 1, category: 'Fruits' })
+const i_book = new Item({ name: 'Cooking for Dummies', unit: 'pcs', defaultQuantity: 1, category: 'Books' })
+const i_flour = new Item({
     name: 'Flour',
     unit: 'grams',
     defaultQuantity: '500',
     category: 'Cooking-ingredients',
     quantity: 280
 })
-const i_sugar = new RecipeIngredient({
+const i_sugar = new Item({
     name: 'Sugar',
     unit: 'grams',
     defaultQuantity: '10',
     category: 'Cooking-ingredients',
     quantity: 25
 })
-const i_salt = new RecipeIngredient({
+const i_salt = new Item({
     name: 'Salt',
     unit: 'tbs',
     defaultQuantity: '1',
     category: 'Cooking-ingredients',
     quantity: 2
 })
-const i_pasta_spaghetti = new RecipeIngredient({
+const i_pasta_spaghetti = new Item({
     name: 'Spaghetti',
     unit: 'grams',
     defaultQuantity: '125',
     category: 'Pasta',
     quantity: 253
 })
-const i_egg = new RecipeIngredient({
+const i_egg = new Item({
     name: 'Egg',
     unit: 'pcs',
     defaultQuantity: '1',
@@ -39,7 +39,7 @@ const i_egg = new RecipeIngredient({
     quantity: 5
 })
 
-export const INGREDIENTS: ShoppingItem[] = [
+export const INGREDIENTS: Item[] = [
     i_flour, i_sugar, i_salt, i_pasta_spaghetti, i_egg, i_apples, i_book
 ]
 

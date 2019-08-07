@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
-import { Recipe, RecipeIngredient } from '../recipe.class';
+import { Recipe } from '../recipe.class';
 import { AddDialogComponent } from 'src/app/generic-components/ingredients/add-dialog/add-dialog.component';
 import { MatDialog, MatTableDataSource } from '@angular/material';
 import { ShoppingItemsService } from 'src/app/shopping/shopping-items.service';
 import { Location } from '@angular/common';
+import { Item } from 'src/app/shopping/shopping-item.class';
 
 @Component({
     selector: 'app-recipes-edit-new',
@@ -15,7 +16,7 @@ import { Location } from '@angular/common';
 export class RecipesEditNewComponent implements OnInit {
 
     recipe: Recipe; // We only work on a temp object. Saving persists data, else it is dismissed.
-    ingredients: RecipeIngredient[];
+    ingredients: Item[];
     dataSource;
     displayedColumns = ['name', 'quantity', 'unit'];
 
@@ -60,7 +61,7 @@ export class RecipesEditNewComponent implements OnInit {
     addIngredient(): void {
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
-            data: { message: 'Add an ingredient to this recipe', suggestions: true, recipeItem: new RecipeIngredient(null) }
+            data: { message: 'Add an ingredient to this recipe', suggestions: true, recipeItem: new Item(null) }
         });
 
         dialogRef.afterClosed().subscribe(result => {
@@ -76,7 +77,7 @@ export class RecipesEditNewComponent implements OnInit {
         });
     }
 
-    addIngredientToIngredientsList(newIng: RecipeIngredient) { // Calculate sums for equal ingredients instead of adding both separately
+    addIngredientToIngredientsList(newIng: Item) { // Calculate sums for equal ingredients instead of adding both separately
         let found = false;
         for (let i = 0; i < this.ingredients.length; i++) {
             if (this.ingredients[i].name === newIng.name) {
