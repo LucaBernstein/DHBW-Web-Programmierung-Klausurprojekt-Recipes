@@ -3,6 +3,7 @@ import { of } from 'rxjs';
 import { RecipeIngredient, Recipe } from '../recipe/recipe.class';
 import { INGREDIENTS } from '../recipe/mock-recipes';
 import { ShoppingItem, GroupBy } from './shopping-item.class';
+import { sortAndGroupItems } from './../helpers/sortedLists'
 
 @Injectable({
     providedIn: 'root'
@@ -28,39 +29,11 @@ export class ShoppingItemsService {
     sortedAndGroupedItems: (ShoppingItem | GroupBy)[] = [];
 
     constructor() {
-        this.sortAndGroupItems();
-    }
-
-    sortAndGroupItems() {
-        let tempCategories = []; // We calculate the categories dynamically for autofill
-        let tempItems = [...this.rawItems]; // Copy Array
-        tempItems.sort((e, f) => { // Sort by Category
-            return e.category.localeCompare(f.category);
-        });
-
-        let tempResultItems = []; // Create temp output array
-        let previousItem; // Remember previous item to know where a new category starts.
-
-        tempItems.forEach(element => { // Check if new category started at each item
-            if (element.category === '') { // By default all uncategorized items are marked accordingly
-                element.category = '*Uncategorized';
-            }
-            if (previousItem !== undefined && element.category === previousItem.category) {
-                tempResultItems.push(element);
-            } else { // If a new category begins in the sorted list a header row is introduced.
-                tempResultItems.push({ category: element.category, isGroupBy: true });
-                tempResultItems.push(element);
-
-                tempCategories.push(element.category);
-            }
-            previousItem = element;
-        });
-
-        this.sortedAndGroupedItems = [...tempResultItems]; // Write back sorted array.
+        this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
     }
 
     getAllItems() {
-        this.sortAndGroupItems(); // First sort and group items, then return
+        this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems); // First sort and group items, then return
         return of(this.sortedAndGroupedItems);
     }
 
@@ -81,7 +54,7 @@ export class ShoppingItemsService {
         } else {
             // TODO: What to do now? Update?
         }
-        this.sortAndGroupItems(); // After that produce new sorted array for observing components
+        this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems); // After that produce new sorted array for observing components
         return newItem;
     }
 
@@ -107,7 +80,7 @@ export class ShoppingItemsService {
             }
             this.rawItems.push(newIng);
         }
-        this.sortAndGroupItems();
+        this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
     }
 
     public deleteIngredient(ing: RecipeIngredient) {
@@ -117,6 +90,6 @@ export class ShoppingItemsService {
                 break;
             }
         }
-        this.sortAndGroupItems();
+        this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
     }
 }
