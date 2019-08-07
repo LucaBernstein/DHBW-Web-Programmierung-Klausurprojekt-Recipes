@@ -26,7 +26,22 @@ export class ShoppingListService {
     }
 
     addItemToItemsList(newI: Item) {
+        let i = findItemPosition(this.rawItems, newI.name);
+        if (i > 0) { // Item has been found
+            updateItemAtPosition(this.rawItems, newI, i);
+        } else { // We have a new item
+            if (!newI.defaultQuantity) { // But only if no default quantity has been set already.
+                newI.defaultQuantity = newI.quantity; // A new component's quantity is also set as it's default quantity.
+            }
+            this.rawItems.push(newI);
+        }
+        this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
+    }
 
+    public deleteItem(ing: Item) {
+        let i = findItemPosition(this.rawItems, ing.name);
+        deleteItemAtPosition(this.rawItems, i);
+        this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
     }
 
 }

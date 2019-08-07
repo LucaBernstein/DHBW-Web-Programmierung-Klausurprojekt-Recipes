@@ -3,6 +3,6 @@
 </button>
 <shopping-grouped-table (tableEventEmitterBinding)="bindEmitter($event, element)" [dataSource]='dataSource'
     [displayedColumns]='displayedColumns'></shopping-grouped-table>
-<span *ngIf="dataSource.value == undefined || dataSource?.value?.length === 0">
+<span *ngIf="dataSource._data._value == undefined || dataSource?._data?._value?.length === 0">
     <strong>No items available yet. Please start by adding some.</strong>
 </span>
