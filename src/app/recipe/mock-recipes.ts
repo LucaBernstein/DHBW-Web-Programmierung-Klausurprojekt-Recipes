@@ -38,21 +38,43 @@ const i_egg = new Item({
     category: 'Fresh',
     quantity: 5
 })
+const i_salatsosse = new Item({
+    name: 'Salatsoße',
+    unit: 'ml',
+    defaultQuantity: 50,
+    category: 'Fluids',
+    quantity: 25
+});
+const i_salat = new Item({
+    name: 'Blattsalat',
+    unit: 'kg',
+    defaultQuantity: 1,
+    category: 'Fresh',
+    quantity: 0.5
+});
 
 export const INGREDIENTS: Item[] = [
-    i_flour, i_sugar, i_salt, i_pasta_spaghetti, i_egg, i_apples, i_book
+    i_flour, i_sugar, i_salt, i_pasta_spaghetti, i_egg, i_apples, i_book, i_salat, i_salatsosse
 ]
 
 export const RECIPES: Recipe[] = [
+    new Recipe({
+        id: 0,
+        title: 'Grüner Salat',
+        image: '/assets/images/gruener-salat.jpg',
+        description: 'Salat gut waschen. In Schüsseln verteilen. Salatsoße in beliebiger Menge anwenden.',
+        author: 'Student 6815678',
+        ingredients: [
+            i_salat, i_salatsosse
+        ]
+    }),
     new Recipe({
         id: 1,
         title: 'Bratkartoffeln mit Pommes',
         image: 'https://st3.depositphotos.com/10128156/15171/i/1600/depositphotos_151715042-stock-photo-fried-potatoes-and-french-fries.jpg',
         description: 'This is a recipe description',
         author: 'Student 6815678',
-        ingredients: [
-
-        ],
+        ingredients: [],
     }),
     new Recipe({
         id: 2,
