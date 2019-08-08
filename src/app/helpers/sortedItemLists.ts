@@ -20,19 +20,19 @@ function sortAndGroupItems(rawItemsList: Item[]): any[] {
     });
 
     let tempOutputItems = []; // Create temp output array
-    let lastCategory; // Remember previous item to know where a new category starts.
+    let previousItem; // Remember previous item to know where a new category starts.
 
     copyOfInputItems.forEach(element => { // Check if new category started at each item
         if (element.category === '') { // By default all uncategorized items are marked accordingly
             element.category = CATEGORY_UNCATEGORIZED;
         }
-        if (lastCategory !== undefined && element.category === lastCategory.category) {
+        if (previousItem !== undefined && element.category === previousItem.category) {
             tempOutputItems.push(element);
         } else { // If a new category begins in the sorted list a header row is introduced.
             tempOutputItems.push({ category: element.category, isGroupBy: true });
             tempOutputItems.push(element);
         }
-        lastCategory = element;
+        previousItem = element;
     });
 
     return [...tempOutputItems]; // Write back sorted array.

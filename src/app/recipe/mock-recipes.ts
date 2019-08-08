@@ -5,14 +5,14 @@ const i_apples = new Item({ name: 'Apples', unit: 'pcs', defaultQuantity: 1, cat
 const i_book = new Item({ name: 'Cooking for Dummies', unit: 'pcs', defaultQuantity: 1, category: 'Books' })
 const i_flour = new Item({
     name: 'Flour',
-    unit: 'grams',
+    unit: 'g',
     defaultQuantity: '500',
     category: 'Cooking-ingredients',
     quantity: 280
 })
 const i_sugar = new Item({
     name: 'Sugar',
-    unit: 'grams',
+    unit: 'g',
     defaultQuantity: '10',
     category: 'Cooking-ingredients',
     quantity: 25
@@ -26,14 +26,14 @@ const i_salt = new Item({
 })
 const i_pasta_spaghetti = new Item({
     name: 'Spaghetti',
-    unit: 'grams',
+    unit: 'g',
     defaultQuantity: '125',
     category: 'Pasta',
     quantity: 253
 })
 const i_egg = new Item({
     name: 'Egg',
-    unit: 'pcs',
+    unit: 'eggs',
     defaultQuantity: '1',
     category: 'Fresh',
     quantity: 5
