@@ -14,7 +14,7 @@ export class ItemsListComponent implements OnInit {
     ingredients;
     dataSource;
 
-    displayedColumns: string[] = ['name', 'defaultQuantity', 'unit', 'delete'];
+    displayedColumns: string[] = ['name', 'defaultQuantity', 'unit', 'edit', 'delete'];
 
     constructor(
         private shoppingItemsService: ShoppingItemsService,
@@ -28,32 +28,13 @@ export class ItemsListComponent implements OnInit {
     refreshTable() {
         this.shoppingItemsService.getAllItems().subscribe(e => this.ingredients = e);
         this.dataSource = new MatTableDataSource(this.ingredients);
-
-        // The following two lines are a workaround to some kind of bug: Before, Ingredients were not added to the table instantly
-        // Thx to: https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource
-        // TODO: Investigate if this could not be solved otherwise.
-        let data = this.dataSource.data;
-        this.dataSource.data = data;
-    }
-
-    addIngredient() {
-        // TODO: Avoid duplicate from recipe add-ingredient!
-        const dialogRef = this.dialog.open(AddDialogComponent, {
-            //     width: '250px',
-            data: { message: 'Add an ingredient', suggestions: true, recipeItem: new Item(null), onlyAddIngredient: true }
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-            if (result) {
-                this.shoppingItemsService.addIngredientToIngredientsList(result);
-                this.refreshTable();
-            }
-        });
     }
 
     bindEmitter(event) {
         if (event.eventName === 'delete') {
             this.deleteIngredient(event.item);
+        } else if (event.eventName === 'edit') {
+            this.editIngredient(event.item);
         } else {
             console.log(`Binding for event '${event.eventName}' not defined yet.`);
         }
@@ -62,6 +43,36 @@ export class ItemsListComponent implements OnInit {
     deleteIngredient(ingredient) {
         this.shoppingItemsService.deleteIngredient(ingredient);
         this.refreshTable();
+    }
+
+    addIngredient() {
+        this.openEditItemDialog(true);
+    }
+
+    editIngredient(ingredient) {
+        this.openEditItemDialog(false, ingredient);
+    }
+
+    openEditItemDialog(addNew: boolean, ingredient?) {
+        let item: Item = ingredient ? new Item(ingredient) : new Item(null); // Make copy of item to avoid two-way-binding
+        let methodSlug = addNew ? 'Add' : 'Edit';
+
+        // TODO: Avoid duplicate from recipe add-ingredient!
+        const dialogRef = this.dialog.open(AddDialogComponent, {
+            //     width: '250px',
+            data: { message: `${methodSlug} item`, suggestions: true, recipeItem: item, showDefaultQuantityInsteadOfQtd: true }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                if (!addNew) {// Edit existing, replace values
+                    this.shoppingItemsService.replaceItemInItemsList(result);
+                } else {
+                    this.shoppingItemsService.addIngredientToIngredientsList(result);
+                }
+                this.refreshTable();
+            }
+        });
     }
 
 }

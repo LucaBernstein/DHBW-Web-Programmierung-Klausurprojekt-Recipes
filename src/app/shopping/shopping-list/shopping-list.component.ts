@@ -29,10 +29,6 @@ export class ShoppingListComponent implements OnInit {
     refreshTable() {
         this.shoppingListService.getAllItems().subscribe(e => this.ingredients = e);
         this.dataSource = new MatTableDataSource(this.ingredients);
-
-        // Workaround to no refreshing. See comment in #/app/shopping/shopping-list.component.ts
-        let data = this.dataSource.data;
-        this.dataSource.data = data;
     }
 
     openAddItemDialog() {
@@ -61,7 +57,7 @@ export class ShoppingListComponent implements OnInit {
         // TODO: Avoid duplicate from recipe add-ingredient!
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
-            data: { message: `${methodSlug} item`, suggestions: true, recipeItem: item, showDefaultQUantityInsteadOfQtd: false } // TODO: Refine var names
+            data: { message: `${methodSlug} item`, suggestions: true, recipeItem: item, showDefaultQuantityInsteadOfQtd: false }
         });
 
         dialogRef.afterClosed().subscribe(result => {

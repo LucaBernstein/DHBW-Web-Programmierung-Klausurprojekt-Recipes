@@ -51,6 +51,11 @@ export class ShoppingItemsService {
         this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
     }
 
+    replaceItemInItemsList(ingredient) {
+        this.deleteIngredient(ingredient);
+        this.addIngredientToIngredientsList(ingredient);
+    }
+
     public deleteIngredient(ing: Item) {
         let i = findItemPosition(this.rawItems, ing.name);
         deleteItemAtPosition(this.rawItems, i);

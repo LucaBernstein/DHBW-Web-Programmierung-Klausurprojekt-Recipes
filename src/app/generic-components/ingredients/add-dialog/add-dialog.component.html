@@ -5,12 +5,12 @@
         <input cdkFocusInitial matInput [(ngModel)]="data.recipeItem.name">
     </mat-form-field>
     <!-- TODO: Properly do switch / if-else here? -->
-    <p *ngIf="!data.showDefaultQUantityInsteadOfQtd">How much of it would you like to add?</p>
-    <p *ngIf="data.showDefaultQUantityInsteadOfQtd">What should the default quantity be?</p>
+    <p *ngIf="!data.showDefaultQuantityInsteadOfQtd">How much of it would you like to add?</p>
+    <p *ngIf="data.showDefaultQuantityInsteadOfQtd">What should the default quantity be?</p>
     <mat-form-field>
-        <input *ngIf="!data.showDefaultQUantityInsteadOfQtd" matInput type="number"
+        <input *ngIf="!data.showDefaultQuantityInsteadOfQtd" matInput type="number"
             [(ngModel)]="data.recipeItem.quantity">
-        <input *ngIf="data.showDefaultQUantityInsteadOfQtd" matInput type="number"
+        <input *ngIf="data.showDefaultQuantityInsteadOfQtd" matInput type="number"
             [(ngModel)]="data.recipeItem.defaultQuantity">
     </mat-form-field>
     <p>Unit</p>
