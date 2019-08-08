@@ -1,9 +1,7 @@
-<!-- <ul class="recipes-list">
-    <li *ngFor="let recipe of recipes">
-        <a mat-button routerLink="/recipes/{{recipe.id}}">{{recipe.title}}</a> {{ recipe | json }}
-    </li>
-</ul> -->
 <!-- Try flexbox layouts here: https://tburleson-layouts-demos.firebaseapp.com/#/docs -->
+<span *ngIf="recipes == undefined || recipes.length === 0">
+    <strong>No recipes available yet. Please start by adding one.</strong>
+</span>
 <div fxLayout="row wrap" fxLayoutGap="20px grid" style="padding: 20px; padding: 20px;"
     fxLayoutAlign="space-evenly start" fxFlex="auto">
     <div *ngFor="let recipe of recipes" fxFlex="auto">
