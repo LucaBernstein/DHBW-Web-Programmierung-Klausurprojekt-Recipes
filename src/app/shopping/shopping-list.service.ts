@@ -38,6 +38,11 @@ export class ShoppingListService {
         this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
     }
 
+    replaceItemInItemsList(newI: Item) {
+        this.deleteItem(newI);
+        this.addItemToItemsList(newI);
+    }
+
     public deleteItem(ing: Item) {
         let i = findItemPosition(this.rawItems, ing.name);
         deleteItemAtPosition(this.rawItems, i);

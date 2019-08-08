@@ -13,7 +13,7 @@ export class ShoppingListComponent implements OnInit {
 
     @Input() ingredients;
     @Input() dataSource;
-    displayedColumns: string[] = ['name', 'quantity', 'unit', 'delete'];
+    displayedColumns: string[] = ['name', 'quantity', 'unit', 'edit', 'delete'];
 
     // TODO: Inject delete method from here.
 
@@ -35,25 +35,15 @@ export class ShoppingListComponent implements OnInit {
         this.dataSource.data = data;
     }
 
-    addItem() {
-        // TODO: Avoid duplicate from recipe add-ingredient!
-        const dialogRef = this.dialog.open(AddDialogComponent, {
-            //     width: '250px',
-            data: { message: 'Add an item', suggestions: true, recipeItem: new Item(null), onlyAddIngredient: true }
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-            if (result) {
-                console.log(result);
-                this.shoppingListService.addItemToItemsList(result);
-                this.refreshTable();
-            }
-        });
+    openAddItemDialog() {
+        this.openEditItemDialog(true);
     }
 
     bindEmitter(event) {
         if (event.eventName === 'delete') {
             this.deleteItem(event.item);
+        } else if (event.eventName === 'edit') {
+            this.openEditItemDialog(false, event.item);
         } else {
             console.log(`Binding for event '${event.eventName}' not defined yet.`);
         }
@@ -62,6 +52,28 @@ export class ShoppingListComponent implements OnInit {
     deleteItem(ingredient) {
         this.shoppingListService.deleteItem(ingredient);
         this.refreshTable();
+    }
+
+    openEditItemDialog(addNew: boolean, ingredient?) {
+        let item: Item = ingredient ? new Item(ingredient) : new Item(null); // Make copy of item to avoid two-way-binding
+        let methodSlug = addNew ? 'Add' : 'Edit';
+
+        // TODO: Avoid duplicate from recipe add-ingredient!
+        const dialogRef = this.dialog.open(AddDialogComponent, {
+            //     width: '250px',
+            data: { message: `${methodSlug} item`, suggestions: true, recipeItem: item, showDefaultQUantityInsteadOfQtd: false } // TODO: Refine var names
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                if (!addNew) {// Edit existing, replace values
+                    this.shoppingListService.replaceItemInItemsList(result);
+                } else {
+                    this.shoppingListService.addItemToItemsList(result);
+                }
+                this.refreshTable();
+            }
+        });
     }
 
 }

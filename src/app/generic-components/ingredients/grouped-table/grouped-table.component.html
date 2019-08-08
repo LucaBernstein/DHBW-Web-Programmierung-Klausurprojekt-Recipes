@@ -28,6 +28,20 @@
         <td mat-cell *matCellDef="let element"> {{element}} </td>
     </ng-container>
 
+    <!-- For the shopping cart -->
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    </ng-container>
+
+    <!-- Methods to be invoked on table -->
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Edit item </th>
+        <td mat-cell *matCellDef="let element"> <button mat-button
+                (click)="tableEventEmitter($event, 'edit', element)">Edit</button> </td>
+    </ng-container>
+
     <!-- For the items overview to permanently delete item -->
     <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef> Delete item </th>
@@ -35,16 +49,7 @@
                 (click)="tableEventEmitter($event, 'delete', element)">Delete</button> </td>
     </ng-container>
 
-    <!-- For the shopping cart -->
-    <ng-container matColumnDef="quantity">
-        <th mat-header-cell *matHeaderCellDef> Quantity </th>
-        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="removeFromBasket">
-        <th mat-header-cell *matHeaderCellDef> Remove from shopping list </th>
-        <td mat-cell *matCellDef="let element"> {{element}} </td>
-    </ng-container>
+    <!-- Table building -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
