@@ -10,7 +10,7 @@ import { Recipe } from './recipe.class';
 export class RecipeService {
 
     private recipes = RECIPES;
-    private static currentId = 10;
+    private static currentId = 10; // new recipe ID counter
 
     constructor() { }
 
