@@ -7,9 +7,9 @@
     <div *ngFor="let recipe of recipes" fxFlex="auto">
         <mat-card class="recipes-card">
             <mat-card-header>
-                <!-- TODO: Swap this author image with a local one. -->
+                <!-- In a real-world application the author-image location would also be stored in the recipe metadata. -->
                 <div mat-card-avatar class="recipe-author-image"
-                    style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');">
+                    style="background-image: url('/assets/images/creator-of-recipe.jpg');">
                 </div>
                 <mat-card-title><a mat-button routerLink="/recipes/{{recipe.id}}">{{recipe.title}}</a></mat-card-title>
                 <mat-card-subtitle *ngIf="recipe.author">by {{ recipe.author }}</mat-card-subtitle>
