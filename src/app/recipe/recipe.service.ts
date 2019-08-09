@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { RECIPES } from './mock-recipes'
+import { RECIPES } from '../helpers/mock-data'
 import { of, Observable } from 'rxjs';
 import { Recipe } from './recipe.class';
 

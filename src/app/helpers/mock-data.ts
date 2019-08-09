@@ -1,8 +1,8 @@
-import { Recipe } from './recipe.class';
+import { Recipe } from '../recipe/recipe.class';
 import { Item } from '../shopping/shopping-item.class';
 
 const i_apples = new Item({ name: 'Apples', unit: 'pcs', defaultQuantity: 1, category: 'Fruits' })
-const i_book = new Item({ name: 'Cooking for Dummies', unit: 'pcs', defaultQuantity: 1, category: 'Books' })
+const i_book = new Item({ name: 'Cooking for Dummies', unit: 'pcs', quantity: 1, category: 'Books' })
 const i_flour = new Item({
     name: 'Flour',
     unit: 'g',
@@ -54,7 +54,11 @@ const i_salat = new Item({
 });
 
 export const INGREDIENTS: Item[] = [
-    i_flour, i_sugar, i_salt, i_pasta_spaghetti, i_egg, i_apples, i_book, i_salat, i_salatsosse
+    i_flour, i_sugar, i_salt, i_pasta_spaghetti, i_egg, i_apples, i_salat, i_salatsosse
+]
+
+export const SHOPPING_LIST: Item[] = [
+    i_book
 ]
 
 export const RECIPES: Recipe[] = [
