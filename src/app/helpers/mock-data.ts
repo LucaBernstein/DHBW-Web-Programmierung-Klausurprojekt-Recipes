@@ -100,9 +100,5 @@ export const RECIPES: Recipe[] = [
         title: 'Wurstsalat',
         description: 'This is a recipe description',
         author: 'Student 6815678'
-    }),
-    new Recipe({
-        id: 5,
-        title: 'No data _test_'
     })
 ]
