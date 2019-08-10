@@ -32,7 +32,7 @@
                 <a mat-button routerLink="/recipes/edit/{{recipe.id}}">
                     <mat-icon>edit</mat-icon> Bearbeiten
                 </a>
-                <button mat-button (click)="deleteRecipe($event, recipe)">
+                <button mat-button color="error" (click)="deleteRecipe($event, recipe)">
                     <mat-icon>delete</mat-icon> Löschen
                 </button>
             </mat-card-actions>
