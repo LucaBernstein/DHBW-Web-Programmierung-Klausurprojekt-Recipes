@@ -8,37 +8,37 @@
         <div style="padding: 1em;" fxFlex="auto">
             <mat-form-field class="example-full-width">
                 <!-- are all of these values in here really required? -->
-                <input matInput placeholder="Recipe title" [(ngModel)]="recipe.title" id="title" name="title" required>
+                <input matInput placeholder="Rezept-Titel" [(ngModel)]="recipe.title" id="title" name="title" required>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Recipe image URL" [(ngModel)]="recipe.image" id="image" name="image">
+                <input matInput placeholder="Rezept-Bild-Link" [(ngModel)]="recipe.image" id="image" name="image">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Recipe description" [(ngModel)]="recipe.description"
+                <textarea matInput placeholder="Rezept-Beschreibung" [(ngModel)]="recipe.description"
                     name="description"></textarea>
             </mat-form-field>
 
             <div>
                 <button mat-button color="primary" type="submit" (click)="saveRecipe()" style="float:right;">
-                    <mat-icon>save</mat-icon> Save
+                    <mat-icon>save</mat-icon> Speichern
                 </button>
 
                 <button mat-button color="error" type="submit" (click)="cancelEditing()">
-                    <mat-icon>backspace</mat-icon> Cancel editing and go back
+                    <mat-icon>backspace</mat-icon> Zurück ohne zu speichern
                 </button>
             </div>
 
         </div>
         <div style="padding: 1em;" fxFlex="auto">
             <button mat-button color="primary" (click)="addIngredient()">
-                <mat-icon>add</mat-icon> Add Ingredient
+                <mat-icon>add</mat-icon> Zutat hinzufügen
             </button>
             <shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'>
             </shopping-grouped-table>
             <span *ngIf="ingredients?.length === 0">
-                <strong>No ingredients added yet. Please start by adding some.</strong>
+                <strong>Es wurde noch keine Zutat hinzugefügt.</strong>
             </span>
         </div>
     </div>

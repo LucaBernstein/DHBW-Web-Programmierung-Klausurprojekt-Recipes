@@ -1,6 +1,6 @@
 <!-- Try flexbox layouts here: https://tburleson-layouts-demos.firebaseapp.com/#/docs -->
 <span *ngIf="recipes == undefined || recipes.length === 0">
-    <strong>No recipes available yet. Please start by adding one.</strong>
+    <strong>Es sind noch keine Zutaten vorhanden. Starte, indem du eines hinzufügst.</strong>
 </span>
 <div fxLayout="row wrap" fxLayoutGap="20px grid" style="padding: 20px; padding: 20px;"
     fxLayoutAlign="space-evenly start" fxFlex="auto">
@@ -8,11 +8,11 @@
         <mat-card class="recipes-card">
             <mat-card-header>
                 <!-- In a real-world application the author-image location would also be stored in the recipe metadata. -->
-                <div mat-card-avatar class="recipe-author-image"
+                <div mat-card-avatar class="recipe-author-image" *ngIf="recipe.author"
                     style="background-image: url('/assets/images/creator-of-recipe.jpg');">
                 </div>
                 <mat-card-title><a mat-button routerLink="/recipes/{{recipe.id}}">{{recipe.title}}</a></mat-card-title>
-                <mat-card-subtitle *ngIf="recipe.author">by {{ recipe.author }}</mat-card-subtitle>
+                <mat-card-subtitle *ngIf="recipe.author">von {{ recipe.author }}</mat-card-subtitle>
             </mat-card-header>
 
             <a routerLink="/recipes/{{recipe.id}}">
@@ -30,10 +30,10 @@
                 <!-- <button mat-button>Edit</button>
                 <button mat-button>Delete</button> -->
                 <a mat-button routerLink="/recipes/edit/{{recipe.id}}">
-                    <mat-icon>edit</mat-icon> Edit
+                    <mat-icon>edit</mat-icon> Bearbeiten
                 </a>
                 <button mat-button (click)="deleteRecipe($event, recipe)">
-                    <mat-icon>delete</mat-icon> Delete
+                    <mat-icon>delete</mat-icon> Löschen
                 </button>
             </mat-card-actions>
         </mat-card>

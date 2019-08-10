@@ -12,41 +12,44 @@
 
     <!-- Unit Column - for all views -->
     <ng-container matColumnDef="unit">
-        <th mat-header-cell *matHeaderCellDef> Unit </th>
+        <th mat-header-cell *matHeaderCellDef> Einheit </th>
         <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
     </ng-container>
 
     <!-- For the items overview -->
     <ng-container matColumnDef="defaultQuantity">
-        <th mat-header-cell *matHeaderCellDef> Default Quantity </th>
+        <th mat-header-cell *matHeaderCellDef> Standard-Menge </th>
         <td mat-cell *matCellDef="let element"> {{element.defaultQuantity}} </td>
     </ng-container>
 
     <!-- For the items overview or the recipe details -->
     <ng-container matColumnDef="addToBasket">
-        <th mat-header-cell *matHeaderCellDef> Add to shopping list </th>
+        <th mat-header-cell *matHeaderCellDef> Zur Einkaufsliste hinzufügen </th>
         <td mat-cell *matCellDef="let element"> {{element}} </td>
     </ng-container>
 
     <!-- For the shopping cart -->
     <ng-container matColumnDef="quantity">
-        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <th mat-header-cell *matHeaderCellDef> Menge </th>
         <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
     </ng-container>
 
     <!-- Methods to be invoked on table -->
 
     <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef> Edit item </th>
-        <td mat-cell *matCellDef="let element"> <button mat-button
-                (click)="tableEventEmitter($event, 'edit', element)">Edit</button> </td>
+        <th mat-header-cell *matHeaderCellDef> Bearbeiten </th>
+        <td mat-cell *matCellDef="let element"> <button mat-button (click)="tableEventEmitter($event, 'edit', element)">
+                <mat-icon>edit</mat-icon>
+            </button> </td>
     </ng-container>
 
     <!-- For the items overview to permanently delete item -->
     <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef> Delete item </th>
+        <th mat-header-cell *matHeaderCellDef> Entfernen </th>
         <td mat-cell *matCellDef="let element"> <button mat-button color="error"
-                (click)="tableEventEmitter($event, 'delete', element)">Delete</button> </td>
+                (click)="tableEventEmitter($event, 'delete', element)">
+                <mat-icon>delete</mat-icon>
+            </button> </td>
     </ng-container>
 
     <!-- Table building -->

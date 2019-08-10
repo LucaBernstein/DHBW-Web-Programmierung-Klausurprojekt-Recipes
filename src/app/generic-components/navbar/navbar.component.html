@@ -1,27 +1,20 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
         <h1><a mat-button [routerLink]="'/recipes'">
-                <mat-icon>book</mat-icon> {{ title }}
+                <mat-icon>book</mat-icon> Rezepte
             </a></h1>
         <span class="menu-spacer"></span>
         <div>
             <!-- <a mat-button [routerLink]="'/recipes'"> Recipes </a> -->
             <a mat-button [routerLink]="'/recipes/edit/new'">
-                <mat-icon>add</mat-icon> Add Recipe
+                <mat-icon>add</mat-icon> Rezept hinzufügen
             </a>
             <a mat-button [routerLink]="'/shopping/list'">
-                <mat-icon>shopping_cart</mat-icon> Shopping list
+                <mat-icon>shopping_cart</mat-icon> Einkaufsliste
             </a>
             <a mat-button [routerLink]="'/shopping/items'">
-                <mat-icon>list</mat-icon> All ingredients and items
+                <mat-icon>list</mat-icon> Alle Zutaten und Artikel
             </a>
         </div>
     </mat-toolbar-row>
-    <!--
-    <mat-toolbar-row>
-        <span style="font-size: 12px;">
-            This is a dummy recipe app. Your changes will not be saved upon a full reload.
-        </span>
-    </mat-toolbar-row>
-    -->
 </mat-toolbar>
