@@ -1,28 +1,36 @@
 <h1 mat-dialog-title>{{data.message}}</h1>
 <div mat-dialog-content>
-    <p>Welche Zutat möchtest du hinzufügen?</p>
+    <p>Produkt-Name</p>
     <mat-form-field>
-        <input cdkFocusInitial matInput [(ngModel)]="data.recipeItem.name">
+        <input required (cdkFocusInitial)="!data?.disabledEditFields" [disabled]="data?.disabledEditFields" matInput
+            [(ngModel)]="data.recipeItem.name">
     </mat-form-field>
     <!-- TODO: Properly do switch / if-else here? -->
-    <p *ngIf="!data.showDefaultQuantityInsteadOfQtd">Wie viel davon möchtest du hinzufügen?</p>
-    <p *ngIf="data.showDefaultQuantityInsteadOfQtd">Welche Standard-Menge soll der Zutat zugeordnet werden?</p>
+    <div *ngIf="!data.showDefaultQuantityInsteadOfQtd">
+        <p>Wie viel davon möchtest du hinzufügen?</p>
+        <mat-form-field>
+            <input matInput (cdkFocusInitial)="data?.disabledEditFields" type="number"
+                [(ngModel)]="data.recipeItem.quantity">
+        </mat-form-field>
+    </div>
+    <div *ngIf="data.showDefaultQuantityInsteadOfQtd">
+        <p>Welche Standard-Menge soll der Zutat zugeordnet werden?</p>
+        <mat-form-field>
+            <input matInput (cdkFocusInitial)="data?.disabledEditFields" type="number"
+                [(ngModel)]="data.recipeItem.defaultQuantity">
+        </mat-form-field>
+    </div>
+    <p>Mengen-Einheit</p>
     <mat-form-field>
-        <input *ngIf="!data.showDefaultQuantityInsteadOfQtd" matInput type="number"
-            [(ngModel)]="data.recipeItem.quantity">
-        <input *ngIf="data.showDefaultQuantityInsteadOfQtd" matInput type="number"
-            [(ngModel)]="data.recipeItem.defaultQuantity">
+        <input matInput [disabled]="data?.disabledEditFields" [(ngModel)]="data.recipeItem.unit">
     </mat-form-field>
-    <p>Unit</p>
+    <p>Kategorie</p>
     <mat-form-field>
-        <input matInput [(ngModel)]="data.recipeItem.unit">
-    </mat-form-field>
-    <p>Category</p>
-    <mat-form-field>
-        <input matInput [(ngModel)]="data.recipeItem.category">
+        <input matInput [disabled]="data?.disabledEditFields" [(ngModel)]="data.recipeItem.category">
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Abbrechen</button>
-    <button mat-button [mat-dialog-close]="data.recipeItem">Hinzufügen</button>
+    <!-- Add-button with custom-built form-validation on field value lengths -->
+    <button mat-button [mat-dialog-close]="data.recipeItem" [disabled]="!isFormValid()">Hinzufügen</button>
 </div>

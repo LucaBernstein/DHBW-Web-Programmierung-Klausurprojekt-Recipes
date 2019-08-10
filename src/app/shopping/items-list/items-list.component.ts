@@ -60,7 +60,12 @@ export class ItemsListComponent implements OnInit {
         // TODO: Avoid duplicate from recipe add-ingredient!
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
-            data: { message: `${methodSlug} item`, suggestions: true, recipeItem: item, showDefaultQuantityInsteadOfQtd: true }
+            data: {
+                message: `${methodSlug} item`,
+                suggestions: true,
+                recipeItem: item,
+                showDefaultQuantityInsteadOfQtd: true
+            }
         });
 
         dialogRef.afterClosed().subscribe(result => {
