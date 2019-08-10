@@ -18,6 +18,7 @@ const UNIT_EL = 'EL';
 const UNIT_PRISE = 'Prise(n)';
 const UNIT_STUECK = 'Stk.';
 const UNIT_GRAMM = 'g';
+const UNIT_KOPF = 'Kopf';
 
 // Ingredients list with mock data
 export const INGREDIENTS: Item[] = [];
@@ -26,35 +27,7 @@ export const INGREDIENTS: Item[] = [];
 const a_aepfel = new Item({ name: 'Apples', unit: UNIT_STUECK, quantity: 3, category: CAT_OBST });
 const a_buch = new Item({ name: 'Cooking für Dummies', unit: UNIT_STUECK, quantity: 1, category: CAT_BUECHER });
 
-// Ingredients
-const i_spaghetti = new Item({
-    name: 'Spaghetti',
-    unit: 'g',
-    defaultQuantity: '125',
-    category: 'Pasta',
-    quantity: 253
-});
-INGREDIENTS.push(i_spaghetti);
-
-const i_salatsosse = new Item({
-    name: 'Salatsoße',
-    unit: 'ml',
-    defaultQuantity: 50,
-    category: 'Fluids',
-    quantity: 25
-});
-INGREDIENTS.push(i_salatsosse);
-
-const i_salat = new Item({
-    name: 'Blattsalat',
-    unit: 'kg',
-    defaultQuantity: 1,
-    category: 'Fresh',
-    quantity: 0.5
-});
-INGREDIENTS.push(i_salat);
-
-// TODO: Revised ingredients.
+// Ingredients.
 const i_zucker = new Item({
     name: 'Zucker',
     unit: UNIT_GRAMM,
@@ -63,6 +36,24 @@ const i_zucker = new Item({
     quantity: 25
 });
 INGREDIENTS.push(i_zucker);
+
+const i_salat = new Item({
+    name: 'Blattsalat',
+    unit: UNIT_KOPF,
+    defaultQuantity: 1,
+    category: CAT_GEMUESE,
+    quantity: 1
+});
+INGREDIENTS.push(i_salat);
+
+const i_salatsosse = new Item({
+    name: 'Salatsoße',
+    unit: UNIT_ML,
+    defaultQuantity: 100,
+    category: CAT_GEWUERZE,
+    quantity: 75
+});
+INGREDIENTS.push(i_salatsosse);
 
 const i_kartoffeln = new Item({
     name: 'Kartoffeln',
