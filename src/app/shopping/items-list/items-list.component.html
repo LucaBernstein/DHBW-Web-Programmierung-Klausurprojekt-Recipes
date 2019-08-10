@@ -1,7 +1,7 @@
 <shopping-grouped-table (tableEventEmitterBinding)="bindEmitter($event, element)" [dataSource]='dataSource'
     [displayedColumns]='displayedColumns'></shopping-grouped-table>
 <span *ngIf="dataSource._data._value == undefined || dataSource?._data?._value?.length === 0">
-    <strong>Noch keine Zutaten vorhanden. Füge am besten gleich eine hinzu.</strong>
+    <strong>Es ist noch keine Zutat vorhanden. Füge am besten gleich eine hinzu.</strong>
 </span>
 
 <button class="fab-button-add" mat-fab (click)="addIngredient()" color="primary">
