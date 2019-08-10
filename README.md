@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
 
-This project uses yarn
+This project uses `yarn`
 
 ## Development server
 
