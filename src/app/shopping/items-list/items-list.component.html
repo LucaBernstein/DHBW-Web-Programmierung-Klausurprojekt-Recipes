@@ -1,4 +1,4 @@
-<shopping-grouped-table (tableEventEmitterBinding)="bindEmitter($event, element)" [dataSource]='dataSource'
+<shopping-grouped-table (tableEventEmitterBinding)="bindEmitter($event)" [dataSource]='dataSource'
     [displayedColumns]='displayedColumns'></shopping-grouped-table>
 <span *ngIf="dataSource._data._value == undefined || dataSource?._data?._value?.length === 0">
     <strong>Es ist noch keine Zutat vorhanden. Füge am besten gleich eine hinzu.</strong>
