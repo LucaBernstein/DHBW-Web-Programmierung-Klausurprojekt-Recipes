@@ -11,3 +11,9 @@
 .recipe-author-image {
   background-size: cover;
 }
+
+.fab-button-add{
+  right: 20px;
+  bottom: 20px;
+  position: fixed;
+}

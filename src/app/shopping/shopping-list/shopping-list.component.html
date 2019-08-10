@@ -1,8 +1,9 @@
-<button mat-button color="primary" (click)="openAddItemDialog()">
-    <mat-icon>add</mat-icon> Artikel hinzufügen
-</button>
 <shopping-grouped-table (tableEventEmitterBinding)="bindEmitter($event, element)" [dataSource]='dataSource'
     [displayedColumns]='displayedColumns'></shopping-grouped-table>
 <span *ngIf="dataSource._data._value == undefined || dataSource?._data?._value?.length === 0">
     <strong>Noch keine Artikel auf deiner Einkaufsliste. Wenn du welche brauchst, füge sie hinzu.</strong>
 </span>
+
+<button class="fab-button-add" mat-fab (click)="openAddItemDialog()" color="primary">
+    <mat-icon>add</mat-icon>
+</button>
