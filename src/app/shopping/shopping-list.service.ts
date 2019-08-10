@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Item, GroupBy } from './shopping-item.class';
 import { of, Observable } from 'rxjs';
 import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPositionAndUpdateQuantity, calculateCategories } from '../helpers/sortedItemLists'
-import { SHOPPING_LIST } from '../helpers/mock-data';
+import { SHOPPING_LIST } from '../helpers/mock-data-items-and-recipes';
 
 @Injectable({
     providedIn: 'root'

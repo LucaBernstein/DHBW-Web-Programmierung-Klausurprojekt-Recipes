@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { Recipe } from '../recipe/recipe.class';
-import { INGREDIENTS } from '../helpers/mock-data';
+import { INGREDIENTS } from '../helpers/mock-data-items-and-recipes';
 import { GroupBy, Item } from './shopping-item.class';
 import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPositionAndUpdateQuantity, calculateCategories } from '../helpers/sortedItemLists'
 

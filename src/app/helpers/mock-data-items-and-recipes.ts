@@ -75,7 +75,7 @@ export const RECIPES: Recipe[] = [
     new Recipe({
         id: 1,
         title: 'Bratkartoffeln mit Pommes',
-        image: 'https://st3.depositphotos.com/10128156/15171/i/1600/depositphotos_151715042-stock-photo-fried-potatoes-and-french-fries.jpg',
+        image: '/assets/images/fried-potatoes-and-french-fries.jpg',
         description: 'This is a recipe description',
         author: 'Student 6815678',
         ingredients: [],
@@ -83,15 +83,26 @@ export const RECIPES: Recipe[] = [
     new Recipe({
         id: 2,
         title: 'Pfannkuchen',
-        image: 'https://image.brigitte.de/10912866/large1x1-622-622/ac2997ff530842027ca2a3f244ac5ae1/Bv/pfannkuchen.jpg',
-        description: 'This is a recipe description',
+        image: '/assets/images/pfannkuchen.jpg',
+        description: `Das Mehl in eine Schüssel geben, die Milch oder das Mineralwasser hinzugeben und mit dem Schneebesen
+        zu einer glatten Masse rühren. Die Eier zum Teig geben. Salzen oder zuckern (je nach Variante) und alles gut durchschlagen.
+        Der Teig muss dickflüssig sein.<br>
+        Anschließend 30 Minuten ruhen lassen.<br>
+        Das Fett in einer Pfanne erhitzen mit dem Löffel den Pfannkuchenteig hineingeben und gleichmäßig verlaufen lassen.
+        Die Pfannkuchen goldgelb backen und mit einem breiten Pfannenwender umdrehen. Etwas Fett dazugeben und ebenfalls goldgelb backen.
+        Die fertigen Pfannkuchen aufrollen oder übereinanderlegen und auf einer vorgewärmten Platte im Backofen warmstellen,
+        bis alle Eierkuchen gebraten sind.<br>
+        Für die Erdbeerpfannkuchen einen Pfannkuchenteig mit Zucker nach dem Grundrezept zubereiten.
+        250 g gewaschene Erdbeeren im Mixer pürieren und mit Zucker und etwas Cognac aromatisieren.
+        Die gebackenen Pfannkuchen mit dem Erdbeerpüree bestreichen, zusammenrollen, auf vorgewärmte Teller legen und mit
+        etwas Zucker bestreuen. Sofort servieren.`,
         author: 'Student 6815678',
         ingredients: [i_egg, i_flour, i_salt, i_sugar]
     }),
     new Recipe({
         id: 3,
         title: 'Kaiserschmarrn',
-        image: 'https://www.gutekueche.at/img/rezept/847/wiener-kaiserschmarrn.jpg',
+        image: '/assets/images/wiener-kaiserschmarrn.jpg',
         description: 'This is a recipe description',
         author: 'Student 6815678'
     }),
