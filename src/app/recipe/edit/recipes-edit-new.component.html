@@ -21,7 +21,8 @@
             </mat-form-field>
 
             <div>
-                <button mat-button color="primary" type="submit" (click)="saveRecipe()" style="float:right;">
+                <button mat-button color="primary" type="submit" (click)="saveRecipe()" style="float:right;"
+                    [disabled]="!isFormValid()">
                     <mat-icon>save</mat-icon> Speichern
                 </button>
 

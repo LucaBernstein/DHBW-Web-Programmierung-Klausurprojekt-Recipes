@@ -20,7 +20,7 @@ export class AddDialogComponent implements OnInit {
 
     isFormValid(): boolean {
         return (
-            this.data.recipeItem.name !== undefined && this.data.recipeItem.name.length > 0
+            this.data.recipeItem.name !== undefined && this.data.recipeItem.name.trim().length > 0
             // This does not prevent the user from changing a shopping list item's quantity to 0:
             && (this.data.recipeItem.quantity > 0 || this.data.recipeItem.defaultQuantity > 0)
             && this.data.recipeItem.category !== undefined

@@ -96,4 +96,10 @@ export class RecipesEditNewComponent implements OnInit {
     cancelEditing() {
         this._location.back(); // Don't save, just go back.
     }
+
+    isFormValid(): boolean {
+        return (
+            this.recipe.title !== undefined && this.recipe.title.trim().length > 0
+        );
+    }
 }
