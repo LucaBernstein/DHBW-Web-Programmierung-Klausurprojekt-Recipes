@@ -6,7 +6,7 @@
     <div fxLayout.sm="row" fxLayout.xs="row wrap" fxLayoutAlign="start start">
         <div fxFlex="auto">
             <img *ngIf="recipe.image" mat-card-image src="{{ recipe.image }}" alt="Photo of recipe {{ recipe.title }}"
-                style="max-width: 500px;">
+                style="max-width: 500px; padding-left: 1em;">
             <div *ngIf="dataSource.value == undefined || dataSource?.value?.length > 0">
                 <span>
                     <strong>Zutaten:</strong>
