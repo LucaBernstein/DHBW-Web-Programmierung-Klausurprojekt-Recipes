@@ -23,6 +23,10 @@ export class RecipesEditNewComponent implements OnInit {
     dataSource;
     displayedColumns = ['name', 'quantity', 'unit'];
 
+    // Item and category suggestions
+    allIngredientNames;
+    allIngredientCategories;
+
     constructor(
         private route: ActivatedRoute,
         private recipeService: RecipeService,
@@ -54,6 +58,18 @@ export class RecipesEditNewComponent implements OnInit {
             }
         });
         this.dataSource = new MatTableDataSource(this.ingredients);
+
+        this.allIngredientNames = [];
+        this.allIngredientCategories = [];
+        this.shoppingItemsService.getAllItems().subscribe((e) => {
+            e.forEach((i) => {
+                if (i instanceof Item) {
+                    this.allIngredientNames.push(i.name);
+                } else if ('isGroupBy' in i && i.isGroupBy) {
+                    this.allIngredientCategories.push(i.category);
+                }
+            })
+        });
     }
 
     saveRecipe() {
@@ -66,7 +82,15 @@ export class RecipesEditNewComponent implements OnInit {
     addIngredient(): void {
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
-            data: { message: 'Add an ingredient to this recipe', suggestions: true, recipeItem: new Item(null) }
+            data: {
+                message: 'Add an ingredient to this recipe',
+                suggestions: true,
+                recipeItem: new Item(null),
+                options: {
+                    name: this.allIngredientNames,
+                    category: this.allIngredientCategories
+                },
+            }
         });
 
         dialogRef.afterClosed().subscribe(result => {
