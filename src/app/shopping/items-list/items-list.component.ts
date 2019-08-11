@@ -55,13 +55,13 @@ export class ItemsListComponent implements OnInit {
 
     openEditItemDialog(addNew: boolean, ingredient?) {
         let item: Item = ingredient ? new Item(ingredient) : new Item(null); // Make copy of item to avoid two-way-binding
-        let methodSlug = addNew ? 'Add' : 'Edit';
+        let methodSlug = addNew ? 'hinzufügen' : 'ändern';
 
         // TODO: Avoid duplicate from recipe add-ingredient!
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
             data: {
-                message: `${methodSlug} item`,
+                message: `Artikel ${methodSlug}`,
                 suggestions: true,
                 recipeItem: item,
                 showDefaultQuantityInsteadOfQtd: true,

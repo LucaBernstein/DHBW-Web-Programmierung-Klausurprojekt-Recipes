@@ -56,7 +56,7 @@ export class ShoppingListComponent implements OnInit {
         const dialogRef = this.dialog.open(AddDialogComponent, {
             //     width: '250px',
             data: {
-                message: `Produkt ${methodSlug}`,
+                message: `Artikel ${methodSlug}`,
                 suggestions: true,
                 recipeItem: item,
                 showDefaultQuantityInsteadOfQtd: false,
