@@ -1,3 +1,7 @@
+.container {
+    margin: 1em;
+}
+
 .float-right {
     float:right;
 }
