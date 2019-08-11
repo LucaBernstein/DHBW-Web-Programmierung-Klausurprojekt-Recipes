@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { RecipeService } from './../recipe.service'
 import { of } from 'rxjs';
 import { ShoppingListService } from 'src/app/shopping/shopping-list.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'app-recipe-details',
@@ -13,6 +14,8 @@ import { ShoppingListService } from 'src/app/shopping/shopping-list.service';
 export class RecipeDetailsComponent implements OnInit {
 
     recipe: Recipe;
+
+    // Grouped-Table-related variables
     dataSource;
     displayedColumns = ['name', 'quantity', 'unit'];
 
@@ -22,7 +25,8 @@ export class RecipeDetailsComponent implements OnInit {
         private route: ActivatedRoute,
         private recipeService: RecipeService,
         private router: Router,
-        private shoppingListService: ShoppingListService
+        private shoppingListService: ShoppingListService,
+        private _snackBar: MatSnackBar
     ) { }
 
     ngOnInit() {
@@ -55,10 +59,18 @@ export class RecipeDetailsComponent implements OnInit {
 
     undoAddIngredientsToShoppingList() {
         // TODO: Stub
+        console.log('Snackbar action called.');
     }
 
     displaySnackbarForInfoAndUndo() {
-        // TODO: Stub
+        // Snackbar-related-variables
+        let snackbarDurationInSeconds = 5;
+        let snackbarText = 'Die Produkte wurden der Einkaufsliste hinzugefügt.';
+        let snackbarAction = 'Rückgängig machen';
+
+        this._snackBar.open(snackbarText, snackbarAction, {
+            duration: snackbarDurationInSeconds * 1000,
+        }).onAction().subscribe(() => this.undoAddIngredientsToShoppingList());
     }
 
 }

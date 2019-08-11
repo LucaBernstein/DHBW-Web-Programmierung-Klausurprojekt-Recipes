@@ -5,7 +5,7 @@
 
 <div fxLayout="row wrap" fxLayoutGap="grid" fxLayoutAlign="space-evenly start" fxFlex="auto">
     <div *ngFor="let recipe of recipes" fxFlex="auto" style="padding: 10px;">
-        <mat-card class="recipes-card">
+        <mat-card class="recipes-card" [@simpleFadeAnimation]="'in'">
             <mat-card-header>
                 <!-- In a real-world application the author-image location would also be stored in the recipe metadata. -->
                 <div mat-card-avatar class="recipe-author-image" *ngIf="recipe.author"

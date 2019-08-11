@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatCardModule, MatGridListModule, MatInputModule, MatTableModule, MatDialogModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatSnackBarModule, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatCardModule, MatGridListModule, MatInputModule, MatTableModule, MatDialogModule, MatSnackBar } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -50,6 +50,7 @@ import { NotFoundComponent } from './generic-components/not-found/not-found.comp
         MatInputModule,
         MatTableModule,
         MatDialogModule,
+        MatSnackBarModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
