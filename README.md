@@ -7,6 +7,7 @@ This project uses `yarn`
 ## Student Information and Identification
 
 Matrikelnummer: 6815678
+
 Abgabetermin: 11.08.2019
 
 ## Development server
