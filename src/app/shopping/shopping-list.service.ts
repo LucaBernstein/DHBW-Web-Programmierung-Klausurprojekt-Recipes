@@ -54,7 +54,6 @@ export class ShoppingListService {
             }
         })
         this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
-        console.log(`Sorted items: ${JSON.stringify(this.sortedAndGroupedItems)}`);
     }
 
 }

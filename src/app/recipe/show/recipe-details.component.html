@@ -1,30 +1,38 @@
-<div class="padding-left">
-    <button mat-button color="primary" (click)="editRecipe()" class="button-float-right">
+<div>
+    <button mat-button color="primary" (click)="editRecipe()" class="float-right">
         <mat-icon>edit</mat-icon> Rezept bearbeiten
     </button>
+
     <h2>{{recipe.title}} <small class="light-font" *ngIf="recipe.author">von {{ recipe.author }}</small></h2>
-    <div fxLayout.sm="row" fxLayout.xs="row wrap" fxLayoutAlign="start start">
-        <div fxFlex="auto">
+
+    <div *ngIf="dataSource.value == undefined || dataSource?.value?.length > 0">
+        <button class=" float-right" mat-raised-button color="primary" (click)="addIngredientsToShoppingCart(recipe)">
+            <mat-icon>add_shopping_cart</mat-icon>Alle Zutaten der Einkaufsliste hinzufügen
+        </button>
+
+        <h3>Zutaten:</h3>
+        <shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'>
+        </shopping-grouped-table>
+    </div>
+
+    <div class="row">
+        <div class="column">
             <img *ngIf="recipe.image" mat-card-image src="{{ recipe.image }}" alt="Photo of recipe {{ recipe.title }}"
-                class="image-left padding-left">
-            <div *ngIf="dataSource.value == undefined || dataSource?.value?.length > 0">
-                <button class="button-float-right" mat-raised-button color="primary"
-                    (click)="addIngredientsToShoppingCart(recipe)">
-                    <mat-icon>add_shopping_cart</mat-icon>Alle Zutaten der Einkaufsliste hinzufügen
-                </button>
-                <h3>Zutaten:</h3>
-                <shopping-grouped-table [dataSource]='dataSource' [displayedColumns]='displayedColumns'>
-                </shopping-grouped-table>
-            </div>
+                style="width: 100%;">
         </div>
 
-        <!-- TODO: On md add paddng to left side-->
-        <!-- TODO: Fix this layout. / Try original Material Layout again? -->
-        <div fxFlex.xs="auto" fxFlex.md="" class="padding-left">
+        <div class="column">
+            <!-- TODO: On md add paddng to left side-->
+            <!-- TODO: Fix this layout. / Try original Material Layout again? -->
             <h3>Zubereitung:</h3>
             <p>
                 {{ recipe.description }}
             </p>
         </div>
     </div>
+</div>
+
+<div class="padding-left">
+
+
 </div>
