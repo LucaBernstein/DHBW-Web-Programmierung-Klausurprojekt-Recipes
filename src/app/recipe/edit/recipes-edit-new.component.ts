@@ -8,6 +8,9 @@ import { ShoppingItemsService } from 'src/app/shopping/shopping-items.service';
 import { Location } from '@angular/common';
 import { Item } from 'src/app/shopping/shopping-item.class';
 
+const NEW_RECIPE_PARAM = 'new';
+const URL_PARAM_RECIPE_ID = 'recipeId';
+
 @Component({
     selector: 'app-recipes-edit-new',
     templateUrl: './recipes-edit-new.component.html',
@@ -33,8 +36,8 @@ export class RecipesEditNewComponent implements OnInit {
         // Get URL parameter for current recipe
         this.route.paramMap.subscribe(params => {
             // As we are using the same view also for creating new recipes we want to catch that case:
-            let recipeIdParam = params.get("recipeId");
-            if (recipeIdParam === 'new') { // TODO: Extract magic string
+            let recipeIdParam = params.get(URL_PARAM_RECIPE_ID);
+            if (recipeIdParam === NEW_RECIPE_PARAM) {
                 // Provide new recipe object to fill.
                 this.recipe = new Recipe(null);
                 this.recipe.id = this.recipeService.getNewRecipeId();
@@ -72,7 +75,6 @@ export class RecipesEditNewComponent implements OnInit {
 
                 // The following two lines are a workaround to some kind of bug: Before, Ingredients were not added to the table instantly
                 // Thx to: https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource
-                // TODO: Investigate if this could not be solved otherwise.
                 let data = this.dataSource.data;
                 this.dataSource.data = data;
             }

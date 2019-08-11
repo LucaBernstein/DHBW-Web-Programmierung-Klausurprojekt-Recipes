@@ -33,7 +33,7 @@
     <button mat-button (click)="onNoClick()">Abbrechen</button>
     <!-- Add-button with custom-built form-validation on field value lengths -->
     <button mat-button [mat-dialog-close]="data.recipeItem" [disabled]="!isFormValid()">
-        <div *ngIf="!data?.disabledEditFields">Hinzufügen</div>
-        <div *ngIf="data?.disabledEditFields">Übernehmen</div>
+        <div *ngIf="!data?.disabledEditFields && !data.editItem">Hinzufügen</div>
+        <div *ngIf="data?.disabledEditFields || data.editItem">Übernehmen</div>
     </button>
 </div>

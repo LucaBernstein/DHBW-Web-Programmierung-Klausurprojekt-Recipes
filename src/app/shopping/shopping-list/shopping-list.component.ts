@@ -15,8 +15,6 @@ export class ShoppingListComponent implements OnInit {
     @Input() dataSource;
     displayedColumns: string[] = ['name', 'quantity', 'unit', 'edit', 'delete'];
 
-    // TODO: Inject delete method from here.
-
     constructor(
         private shoppingListService: ShoppingListService,
         private dialog: MatDialog

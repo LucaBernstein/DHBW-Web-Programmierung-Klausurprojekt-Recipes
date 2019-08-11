@@ -24,7 +24,6 @@ export class RecipeService {
 
     // Find mock recipe by ID.
     findById(id: number): Recipe {
-        // TODO: Make this beautiful / lodash?
         let finding = null;
         this.recipes.forEach(element => {
             if (element.id === id) {

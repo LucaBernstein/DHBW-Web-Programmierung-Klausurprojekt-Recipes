@@ -64,7 +64,8 @@ export class ItemsListComponent implements OnInit {
                 message: `${methodSlug} item`,
                 suggestions: true,
                 recipeItem: item,
-                showDefaultQuantityInsteadOfQtd: true
+                showDefaultQuantityInsteadOfQtd: true,
+                editItem: !addNew,
             }
         });
 

@@ -13,7 +13,6 @@ export class ShoppingItemsService {
     // TODO: Add Catrgory to cat view here for selection
     categories: string[];
 
-    // TODO: Use Key-Value-Store instead?
     rawItems: Item[] = INGREDIENTS;
     sortedAndGroupedItems: (Item | GroupBy)[] = [];
 

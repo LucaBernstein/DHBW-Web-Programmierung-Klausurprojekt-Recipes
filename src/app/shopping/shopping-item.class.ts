@@ -6,7 +6,7 @@ export interface GroupBy {
 export class Item {
     name: string;
     unit: string;
-    category: string; // TODO: Make all items uncategorized by default
+    category: string;
     quantity: number;
 
     defaultQuantity?: number;
