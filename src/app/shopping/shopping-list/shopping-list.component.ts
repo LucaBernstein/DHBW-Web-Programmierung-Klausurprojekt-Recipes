@@ -27,7 +27,7 @@ export class ShoppingListComponent implements OnInit {
     }
 
     refreshTable() {
-        this.shoppingListService.getAllItems().subscribe(e => this.ingredients = e);
+        this.shoppingListService.getAllItems().subscribe((e) => { this.ingredients = e; });
         this.dataSource = new MatTableDataSource(this.ingredients);
     }
 

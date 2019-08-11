@@ -5,6 +5,7 @@ import { RecipeService } from './../recipe.service'
 import { of } from 'rxjs';
 import { ShoppingListService } from 'src/app/shopping/shopping-list.service';
 import { MatSnackBar } from '@angular/material';
+import { Item } from 'src/app/shopping/shopping-item.class';
 
 @Component({
     selector: 'app-recipe-details',
@@ -52,20 +53,19 @@ export class RecipeDetailsComponent implements OnInit {
     addIngredientsToShoppingCart(recipe: Recipe) {
         this.lastAddedIngredientsToShoppingList = recipe.ingredients;
         recipe.ingredients.forEach(element => {
-            this.shoppingListService.addItemToItemsList(element);
+            this.shoppingListService.addItemToItemsList(new Item(element)); // Copy added items to not muddle with same object on removal
         });
         this.displaySnackbarForInfoAndUndo();
     }
 
     undoAddIngredientsToShoppingList() {
-        // TODO: Stub
-        console.log('Snackbar action called.');
+        this.shoppingListService.bulkRemoveItemsFromList(this.lastAddedIngredientsToShoppingList)
     }
 
     displaySnackbarForInfoAndUndo() {
         // Snackbar-related-variables
         let snackbarDurationInSeconds = 5;
-        let snackbarText = 'Die Produkte wurden der Einkaufsliste hinzugefügt.';
+        let snackbarText = 'Zur Einkaufsliste hinzugefügt.';
         let snackbarAction = 'Rückgängig machen';
 
         this._snackBar.open(snackbarText, snackbarAction, {

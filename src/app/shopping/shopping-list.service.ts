@@ -44,10 +44,24 @@ export class ShoppingListService {
         this.addItemToItemsList(newI);
     }
 
-    public deleteItem(ing: Item) {
+    deleteItem(ing: Item) {
         let i = findItemPosition(this.rawItems, ing.name);
         deleteItemAtPosition(this.rawItems, i);
         this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
+    }
+
+    bulkRemoveItemsFromList(items: Item[]) {
+        items.forEach((i) => {
+            let itemPos = findItemPosition(this.rawItems, i.name);
+            if (itemPos !== -1) { // Item exists
+                this.rawItems[itemPos].quantity -= i.quantity; // Deduct quantity
+                if (this.rawItems[itemPos].quantity <= 0) { // No more, or negative quantity
+                    this.deleteItem(this.rawItems[itemPos]);
+                }
+            }
+        })
+        this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);
+        console.log(`Sorted items: ${JSON.stringify(this.sortedAndGroupedItems)}`);
     }
 
 }
