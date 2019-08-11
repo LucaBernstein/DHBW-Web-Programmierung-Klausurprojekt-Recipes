@@ -31,7 +31,7 @@ export class ShoppingItemsService {
     addIngredientToIngredientsList(newIng: Item) {
         let i = findItemPosition(this.rawItems, newIng.name);
         if (i >= 0) { // Item has been found
-            insertItemAfterPositionAndUpdateQuantity(this.rawItems, newIng, i);
+            // Do nothing.
         } else { // We have a new item
             if (!newIng.defaultQuantity) { // But only if no default quantity has been set already.
                 newIng.defaultQuantity = newIng.quantity; // A new component's quantity is also set as it's default quantity.
