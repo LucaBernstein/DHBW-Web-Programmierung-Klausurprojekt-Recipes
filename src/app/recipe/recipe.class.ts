@@ -4,7 +4,6 @@ export class Recipe {
     id: number;
     title: string;
     description?: string;
-    difficulty?: number;
     image?: string;
     author?: string;
     ingredients?: Item[] = [];

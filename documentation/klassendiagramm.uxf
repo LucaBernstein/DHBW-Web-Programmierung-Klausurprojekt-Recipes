@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>60</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>add-dialog
+--
+--
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>60</y>
+      <w>290</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>grouped-table
+--
+@Input dataSource
+@Input displayedColumns
+@Output tableEventEmitterBinding
+--
+tableEventEmitter($event, eventName, item)
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>120</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>navbar
+--
+--
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>180</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>not-found
+--
+--
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>1600</y>
+      <w>320</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>recipeApi.Service
+--
++fakeIngredients: Ingredient[]
++fakeRecipes: Recipe[]
+
++recipeSubject: BehaviorSubject&lt;Recipe[]&gt;
++recipe: Observable&lt;Recipe[]&gt;
+
++ingredientSubject: BehavioSubject&lt;Ingredient[]&gt;
++ingredient: Observable&lt;Ingredient[]&gt;
+
+farmingListSubject: BehaviorSubject&lt;Recipe[]&gt;
+farmingList: Observable&lt;Recipe[]&gt;
+--
++addRecipe(recipe: Recipe)
++addIngredient(ingredient: Ingredient)
++addRecipeToFarminlist(recipe: Recipe)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>780</y>
+      <w>140</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Recipe
+--
+id: number
+title: string
+description: string
+image: string
+author: string
+ingredients: Item[]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1100</x>
+      <y>780</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+name: string
+unit: string
+category: string
+quantity: number
+defaultQuantity: number</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>0</y>
+      <w>790</w>
+      <h>740</h>
+    </coordinates>
+    <panel_attributes>lt=.
+Components</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>750</y>
+      <w>580</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=.
+Classes and Interfaces</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>1570</y>
+      <w>770</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>lt=.
+API</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>750</y>
+      <w>200</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=.
+Mock data provider
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>800</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>INGREDIENTS
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>860</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>RECIPES
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>920</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SHOPPING_LIST
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>30</y>
+      <w>430</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=.
+Generic
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1150</x>
+      <y>30</y>
+      <w>330</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>lt=.
+Recipe
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1160</x>
+      <y>70</y>
+      <w>300</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>recipes-edit-new
+--
+recipe: Recipe
+ingredients: Item[]
+dataSource
+displayedColumns: string[]
+--
+saveRecipe()
+addIngredient()
+addIngredientToIngredientsList(newIng: Item)
+cancelEditing()
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1160</x>
+      <y>250</y>
+      <w>300</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>list-all
+--
+recipes: Recipe[]
+--
+deleteRecipe(event, recipe: Recipe)
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1160</x>
+      <y>330</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>recipe-details
+--
+recipe: Recipe
+dataSource
+displayedColumns: string[]
+lastAddedIngredientsToShoppingList
+--
+editRecipe()
+deleteRecipe(event, recipe: Recipe)
+addIngredientsToShoppingCart(recipe: Recipe)
+undoAddIngredientsToShoppingList()
+displaySnackbarForInfoAndUndo()
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>1000</y>
+      <w>790</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=.
+Services and Modules</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>1210</y>
+      <w>240</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>recipe
+--
+recipes: Recipe[]
+currentId: number
+--
+getAll(): Observable&lt;Recipe&gt;
+get(id: number): Observable&lt;Recipe&gt;
+findById(id: number): Recipe
+saveOrAdd(r: Recipe)
+deleteFromRecipes(id: number)
+getNewRecipeId(): number</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>240</y>
+      <w>430</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>lt=.
+Shopping</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>270</y>
+      <w>360</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>items-list
+--
+ingredients;
+dataSource;
+displayedColumns: string[]
+allIngredientNames;
+allIngredientCategories;
+--
+refreshTable()
+bindEmitter(event)
+deleteIngredient(ingredient)
+addIngredient()
+editIngredient(ingredient)
+openEditItemDialog(addNew: boolean, ingredient: Item)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>500</y>
+      <w>360</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>shopping-list
+--
+ingredients;
+dataSource;
+displayedColumns: string[]
+allIngredientNames;
+allIngredientCategories;
+--
+refreshTable()
+openAddItemDialog()
+bindEmitter(event)
+deleteItem(ingredient)
+openEditItemDialog(addNew: boolean, ingredient: Item)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1290</x>
+      <y>780</y>
+      <w>170</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>GroupBy
+--
+category: string
+isGroupBy: boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>1030</y>
+      <w>380</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>shopping-items
+--
+rawItems: Item[]
+sortedAndGroupedItems: (Item|GroupBy)[]
+--
+getAllItems()
+addOrCheckAddedIngredientsForIngredientsList(r: Recipe)
+addIngredientToIngredientsList(newIng: Item)
+replaceItemInItemsList(ingredient)
+deleteIngredient(ing: Item)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>1030</y>
+      <w>240</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>shopping-list
+--
+rawItems: Item[]
+sortedAndGroupedItems: (Item|GroupBy)[]
+--
+getAllItems()
+addItemToItemsList(newI: Item)
+replaceItemInItemsList(newI: Item)
+deleteItem(ing: Item)
+bulkRemoveItemsFromList(items: Item[])</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1190</x>
+      <y>530</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>app-module
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1260</x>
+      <y>570</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>app-component
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1330</x>
+      <y>610</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>app-routing
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1500</x>
+      <y>610</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>@angular/router</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1470</x>
+      <y>610</y>
+      <w>50</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1450</x>
+      <y>150</y>
+      <w>140</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;460.0;120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>150</y>
+      <w>630</w>
+      <h>1190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;1050.0;50.0;1170.0;520.0;1170.0;610.0;510.0;520.0;10.0;410.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>950</x>
+      <y>270</y>
+      <w>800</w>
+      <h>1090</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1070.0;780.0;1070.0;780.0;10.0;510.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1450</x>
+      <y>380</y>
+      <w>140</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;230.0;120.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1350</x>
+      <y>380</y>
+      <w>390</w>
+      <h>750</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;730.0;370.0;730.0;370.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>380</y>
+      <w>130</w>
+      <h>770</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;750.0;10.0;750.0;10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>580</y>
+      <w>470</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>450.0;450.0;300.0;440.0;10.0;440.0;10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>580</y>
+      <w>130</w>
+      <h>570</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;550.0;10.0;550.0;10.0;80.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>800</y>
+      <w>40</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>20.0;230.0;20.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>860</y>
+      <w>100</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;380.0;10.0;380.0;10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>920</y>
+      <w>500</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>480.0;110.0;480.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

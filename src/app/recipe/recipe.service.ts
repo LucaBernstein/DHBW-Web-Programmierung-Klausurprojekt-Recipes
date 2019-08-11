@@ -51,7 +51,7 @@ export class RecipeService {
         }
     }
 
-    getNewRecipeId() {
+    getNewRecipeId(): number {
         return RecipeService.currentId++;
     }
 
