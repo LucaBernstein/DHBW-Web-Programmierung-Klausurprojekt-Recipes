@@ -16,6 +16,7 @@ export class ItemsListComponent implements OnInit {
 
     displayedColumns: string[] = ['name', 'defaultQuantity', 'unit', 'edit', 'delete'];
 
+    // Name and Category suggestions
     allIngredientNames;
     allIngredientCategories;
 

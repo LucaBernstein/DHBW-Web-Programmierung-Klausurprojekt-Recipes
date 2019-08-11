@@ -23,7 +23,7 @@ export class AddDialogComponent implements OnInit {
     ngOnInit() {
         this.filteredOptionsName = this.filterFormControlName.valueChanges
             .pipe(
-                startWith(''),
+                startWith(this.filterFormControlName.value),
                 map((value) => this._filter(value, 'name'))
             );
         this.filteredOptionsCategory = this.filterFormControlCat.valueChanges
@@ -47,9 +47,9 @@ export class AddDialogComponent implements OnInit {
     }
 
     private _filter(value: string, group: string): string[] {
-        if (value !== undefined && value.length > 0) { // Typed at least one letter.
+        if (value !== null && value !== undefined && value.length >= 0) { // Suggest instantly. Could change here, to how many letters must have been typed before suggesting
             const filterValue = value.toLowerCase();
-            if (this.data.options![group] !== undefined) { // Make sure list to select from is provided
+            if (this.data.options !== undefined && this.data.options[group] !== undefined) { // Make sure list to select from is provided
                 return this.data.options[group].filter((option) => option.toLowerCase().includes(filterValue));
             }
         }

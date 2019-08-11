@@ -3,6 +3,7 @@ import { ShoppingListService } from '../shopping-list.service';
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { AddDialogComponent } from 'src/app/generic-components/ingredients/add-dialog/add-dialog.component';
 import { Item } from '../shopping-item.class';
+import { ShoppingItemsService } from '../shopping-items.service';
 
 @Component({
     selector: 'app-shopping-list',
@@ -15,9 +16,14 @@ export class ShoppingListComponent implements OnInit {
     @Input() dataSource;
     displayedColumns: string[] = ['name', 'quantity', 'unit', 'edit', 'delete'];
 
+    // Name and Category suggestions
+    allIngredientNames;
+    allIngredientCategories;
+
     constructor(
         private shoppingListService: ShoppingListService,
-        private dialog: MatDialog
+        private dialog: MatDialog,
+        private shoppingItemsService: ShoppingItemsService
     ) { }
 
     ngOnInit() {
@@ -27,6 +33,18 @@ export class ShoppingListComponent implements OnInit {
     refreshTable() {
         this.shoppingListService.getAllItems().subscribe((e) => { this.ingredients = e; });
         this.dataSource = new MatTableDataSource(this.ingredients);
+
+        this.allIngredientNames = [];
+        this.allIngredientCategories = [];
+        this.shoppingItemsService.getAllItems().subscribe((e) => {
+            e.forEach((i) => {
+                if (i instanceof Item) {
+                    this.allIngredientNames.push(i.name);
+                } else if ('isGroupBy' in i && i.isGroupBy) {
+                    this.allIngredientCategories.push(i.category);
+                }
+            })
+        });
     }
 
     openAddItemDialog() {
@@ -60,7 +78,11 @@ export class ShoppingListComponent implements OnInit {
                 suggestions: true,
                 recipeItem: item,
                 showDefaultQuantityInsteadOfQtd: false,
-                disabledEditFields: !addNew
+                disabledEditFields: !addNew,
+                options: {
+                    name: this.allIngredientNames,
+                    category: this.allIngredientCategories
+                },
             }
         });
 
