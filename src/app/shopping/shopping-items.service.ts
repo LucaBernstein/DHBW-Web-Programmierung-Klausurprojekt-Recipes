@@ -3,15 +3,12 @@ import { of, Observable } from 'rxjs';
 import { Recipe } from '../recipe/recipe.class';
 import { INGREDIENTS } from '../helpers/mock-data-items-and-recipes';
 import { GroupBy, Item } from './shopping-item.class';
-import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPositionAndUpdateQuantity, calculateCategories } from '../helpers/sortedItemLists'
+import { sortAndGroupItems, deleteItemAtPosition, findItemPosition, insertItemAfterPositionAndUpdateQuantity } from '../helpers/sortedItemLists'
 
 @Injectable({
     providedIn: 'root'
 })
 export class ShoppingItemsService {
-
-    // TODO: Add Catrgory to cat view here for selection
-    categories: string[];
 
     rawItems: Item[] = INGREDIENTS;
     sortedAndGroupedItems: (Item | GroupBy)[] = [];
@@ -23,12 +20,6 @@ export class ShoppingItemsService {
     getAllItems(): Observable<(Item | GroupBy)[]> {
         this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems); // First sort and group items, then return
         return of(this.sortedAndGroupedItems);
-    }
-
-    getAllCategories(): string[] {
-        // Lazy calculate categories
-        this.categories = calculateCategories(this.sortedAndGroupedItems);
-        return this.categories;
     }
 
     addOrCheckAddedIngredientsForIngredientsList(r: Recipe) {

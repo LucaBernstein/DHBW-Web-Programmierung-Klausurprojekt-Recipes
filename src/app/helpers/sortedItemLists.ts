@@ -2,17 +2,6 @@ import { Item, GroupBy } from '../shopping/shopping-item.class';
 
 export const CATEGORY_UNCATEGORIZED = '*Uncategorized';
 
-function calculateCategories(sortedItemsList: (Item | GroupBy)[]): string[] {
-    let tempCategories: string[] = []; // We calculate the categories dynamically for autofill
-    sortedItemsList.forEach((e: (Item | GroupBy)) => {
-        if ('isGroupBy' in e && e.isGroupBy) { // If attribute exists and is true
-            tempCategories.push(e.category);
-        }
-    })
-    return tempCategories;
-}
-export { calculateCategories };
-
 function sortAndGroupItems(rawItemsList: Item[]): any[] {
     let copyOfInputItems = [...rawItemsList]; // Copy Array
     copyOfInputItems.sort((e, f) => { // Sort by Category

@@ -78,7 +78,6 @@ export class ItemsListComponent implements OnInit {
             //     width: '250px',
             data: {
                 message: `Artikel ${methodSlug}`,
-                suggestions: true,
                 recipeItem: item,
                 showDefaultQuantityInsteadOfQtd: true,
                 editItem: !addNew,

@@ -75,7 +75,6 @@ export class ShoppingListComponent implements OnInit {
             //     width: '250px',
             data: {
                 message: `Artikel ${methodSlug}`,
-                suggestions: true,
                 recipeItem: item,
                 showDefaultQuantityInsteadOfQtd: false,
                 disabledEditFields: !addNew,
