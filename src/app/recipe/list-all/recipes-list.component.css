@@ -26,3 +26,7 @@
     bottom: 20px;
     position: fixed;
 }
+
+.buttons-next-to-each-other {
+    float: left;
+}

@@ -4,7 +4,7 @@
 </span>
 
 <!-- TODO: On resize reduce/increase columns?: Bind to cols -->
-<mat-grid-list cols="3" rowHeight="500px">
+<mat-grid-list cols="3" rowHeight="475px">
     <mat-grid-tile *ngFor="let recipe of recipes" class="recipe-card-tile">
         <mat-card class="recipe-card">
             <mat-card-header>
@@ -28,10 +28,11 @@
 
             <mat-card-actions>
                 <div style="display:inline-block;">
-                    <button mat-button routerLink="/recipes/edit/{{recipe.id}}" style="float: left;">
+                    <button mat-button routerLink="/recipes/edit/{{recipe.id}}" class="buttons-next-to-each-other">
                         <mat-icon>edit</mat-icon> Bearbeiten
                     </button>
-                    <button mat-button color="error" (click)="deleteRecipe($event, recipe)" style="float:left;">
+                    <button mat-button color="error" (click)="deleteRecipe($event, recipe)"
+                        class="buttons-next-to-each-other">
                         <mat-icon>delete</mat-icon> Löschen
                     </button>
                 </div>
