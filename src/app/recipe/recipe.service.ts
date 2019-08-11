@@ -23,7 +23,7 @@ export class RecipeService {
     }
 
     // Find mock recipe by ID.
-    public findById(id: number): Recipe {
+    findById(id: number): Recipe {
         // TODO: Make this beautiful / lodash?
         let finding = null;
         this.recipes.forEach(element => {
@@ -34,12 +34,12 @@ export class RecipeService {
         return finding;
     }
 
-    public saveOrAdd(r: Recipe) {
+    saveOrAdd(r: Recipe) {
         this.deleteFromRecipes(r.id);
         this.recipes.splice(0, 0, r); // Append modified / created recipe to the beginning of the list to see it right at the top of the recipies.
     }
 
-    public deleteFromRecipes(id: number) {
+    deleteFromRecipes(id: number) {
         let position = null;
         for (let i = 0; i < this.recipes.length; i++) {
             if (this.recipes[i].id === id) {
@@ -52,7 +52,7 @@ export class RecipeService {
         }
     }
 
-    public getNewRecipeId() {
+    getNewRecipeId() {
         return RecipeService.currentId++;
     }
 

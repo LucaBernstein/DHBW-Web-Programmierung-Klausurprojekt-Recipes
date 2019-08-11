@@ -32,13 +32,13 @@ export class ShoppingItemsService {
         return this.categories;
     }
 
-    public addOrCheckAddedIngredientsForIngredientsList(r: Recipe) {
+    addOrCheckAddedIngredientsForIngredientsList(r: Recipe) {
         r.ingredients.forEach(newIng => {
             this.addIngredientToIngredientsList(newIng);
         })
     }
 
-    public addIngredientToIngredientsList(newIng: Item) {
+    addIngredientToIngredientsList(newIng: Item) {
         let i = findItemPosition(this.rawItems, newIng.name);
         if (i >= 0) { // Item has been found
             insertItemAfterPositionAndUpdateQuantity(this.rawItems, newIng, i);
@@ -56,7 +56,7 @@ export class ShoppingItemsService {
         this.addIngredientToIngredientsList(ingredient);
     }
 
-    public deleteIngredient(ing: Item) {
+    deleteIngredient(ing: Item) {
         let i = findItemPosition(this.rawItems, ing.name);
         deleteItemAtPosition(this.rawItems, i);
         this.sortedAndGroupedItems = sortAndGroupItems(this.rawItems);

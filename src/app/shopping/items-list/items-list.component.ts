@@ -18,7 +18,7 @@ export class ItemsListComponent implements OnInit {
 
     constructor(
         private shoppingItemsService: ShoppingItemsService,
-        public dialog: MatDialog
+        private dialog: MatDialog
     ) { }
 
     ngOnInit() {

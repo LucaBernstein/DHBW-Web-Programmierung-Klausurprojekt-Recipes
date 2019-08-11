@@ -24,7 +24,7 @@ export class RecipesEditNewComponent implements OnInit {
         private route: ActivatedRoute,
         private recipeService: RecipeService,
         private router: Router,
-        public dialog: MatDialog,
+        private dialog: MatDialog,
         private shoppingItemsService: ShoppingItemsService,
         private _location: Location,
     ) { }

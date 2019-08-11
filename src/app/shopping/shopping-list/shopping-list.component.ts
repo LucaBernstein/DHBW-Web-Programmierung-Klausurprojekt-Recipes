@@ -19,7 +19,7 @@ export class ShoppingListComponent implements OnInit {
 
     constructor(
         private shoppingListService: ShoppingListService,
-        public dialog: MatDialog
+        private dialog: MatDialog
     ) { }
 
     ngOnInit() {
