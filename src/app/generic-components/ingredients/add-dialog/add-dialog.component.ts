@@ -21,6 +21,7 @@ export class AddDialogComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        // If user enters data into name or category field, the suggestions are filtered accordingly
         this.filteredOptionsName = this.filterFormControlName.valueChanges
             .pipe(
                 startWith(this.filterFormControlName.value),
@@ -33,7 +34,7 @@ export class AddDialogComponent implements OnInit {
             );
     }
 
-    onNoClick(): void {
+    onNoClick(): void { // Cancel the dialog
         this.dialogRef.close();
     }
 

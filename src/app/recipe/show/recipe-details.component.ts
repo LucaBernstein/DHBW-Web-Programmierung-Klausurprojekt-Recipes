@@ -59,6 +59,7 @@ export class RecipeDetailsComponent implements OnInit {
     }
 
     undoAddIngredientsToShoppingList() {
+        // If user clicks "Undo" on snackbar, do accordingly and remove ingredients from shopping list again.
         this.shoppingListService.bulkRemoveItemsFromList(this.lastAddedIngredientsToShoppingList)
     }
 

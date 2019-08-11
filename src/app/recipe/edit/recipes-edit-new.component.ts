@@ -59,6 +59,7 @@ export class RecipesEditNewComponent implements OnInit {
         });
         this.dataSource = new MatTableDataSource(this.ingredients);
 
+        // Prepare typing suggestions for add/edit dialog
         this.allIngredientNames = [];
         this.allIngredientCategories = [];
         this.shoppingItemsService.getAllItems().subscribe((e) => {
