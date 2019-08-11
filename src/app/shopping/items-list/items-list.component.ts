@@ -16,6 +16,9 @@ export class ItemsListComponent implements OnInit {
 
     displayedColumns: string[] = ['name', 'defaultQuantity', 'unit', 'edit', 'delete'];
 
+    allIngredientNames;
+    allIngredientCategories;
+
     constructor(
         private shoppingItemsService: ShoppingItemsService,
         private dialog: MatDialog
@@ -28,6 +31,18 @@ export class ItemsListComponent implements OnInit {
     refreshTable() {
         this.shoppingItemsService.getAllItems().subscribe(e => this.ingredients = e);
         this.dataSource = new MatTableDataSource(this.ingredients);
+
+        this.allIngredientNames = [];
+        this.allIngredientCategories = [];
+        this.shoppingItemsService.getAllItems().subscribe((e) => {
+            e.forEach((i) => {
+                if (i instanceof Item) {
+                    this.allIngredientNames.push(i.name);
+                } else if ('isGroupBy' in i && i.isGroupBy) {
+                    this.allIngredientCategories.push(i.category);
+                }
+            })
+        });
     }
 
     bindEmitter(event) {
@@ -66,6 +81,10 @@ export class ItemsListComponent implements OnInit {
                 recipeItem: item,
                 showDefaultQuantityInsteadOfQtd: true,
                 editItem: !addNew,
+                options: {
+                    name: this.allIngredientNames,
+                    category: this.allIngredientCategories
+                },
             }
         });
 
