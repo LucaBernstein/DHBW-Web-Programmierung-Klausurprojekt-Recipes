@@ -191,12 +191,12 @@ export const RECIPES: Recipe[] = [
         image: '/assets/images/pfannkuchen.jpg',
         description: `Das Mehl in eine Schüssel geben, die Milch oder das Mineralwasser hinzugeben und mit dem Schneebesen
         zu einer glatten Masse rühren. Die Eier zum Teig geben. Salzen oder zuckern (je nach Variante) und alles gut durchschlagen.
-        Der Teig muss dickflüssig sein.<br>
-        Anschließend 30 Minuten ruhen lassen.<br>
+        Der Teig muss dickflüssig sein.\n
+        Anschließend 30 Minuten ruhen lassen.\n
         Das Fett in einer Pfanne erhitzen mit dem Löffel den Pfannkuchenteig hineingeben und gleichmäßig verlaufen lassen.
         Die Pfannkuchen goldgelb backen und mit einem breiten Pfannenwender umdrehen. Etwas Fett dazugeben und ebenfalls goldgelb backen.
         Die fertigen Pfannkuchen aufrollen oder übereinanderlegen und auf einer vorgewärmten Platte im Backofen warmstellen,
-        bis alle Eierkuchen gebraten sind.<br>
+        bis alle Eierkuchen gebraten sind.\n
         Für die Erdbeerpfannkuchen einen Pfannkuchenteig mit Zucker nach dem Grundrezept zubereiten.
         250 g gewaschene Erdbeeren im Mixer pürieren und mit Zucker und etwas Cognac aromatisieren.
         Die gebackenen Pfannkuchen mit dem Erdbeerpüree bestreichen, zusammenrollen, auf vorgewärmte Teller legen und mit
