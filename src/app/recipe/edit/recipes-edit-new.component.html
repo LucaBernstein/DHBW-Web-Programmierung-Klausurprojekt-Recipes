@@ -2,26 +2,26 @@
 <!-- Creating a new one is also possible. Maybe provide a flag indicating that we are creating a new one? -->
 <!-- Check if object given is null and then automatically lay everything out for creating a new one? -->
 
-<form class="example-form container">
+<form class="container full-width">
     <div fxLayout.sm="row" fxLayout.xs="row wrap" fxLayoutAlign="space-evenly start">
 
-        <div style="padding: 1em;" fxFlex="auto">
-            <mat-form-field class="example-full-width">
+        <div class="padding" fxFlex="auto">
+            <mat-form-field class="full-width">
                 <!-- are all of these values in here really required? -->
                 <input matInput placeholder="Rezept-Titel" [(ngModel)]="recipe.title" id="title" name="title" required>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="full-width">
                 <input matInput placeholder="Rezept-Bild-Link" [(ngModel)]="recipe.image" id="image" name="image">
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="full-width">
                 <textarea matInput placeholder="Rezept-Beschreibung" [(ngModel)]="recipe.description"
                     name="description"></textarea>
             </mat-form-field>
 
             <div>
-                <button mat-button color="primary" type="submit" (click)="saveRecipe()" style="float:right;"
+                <button class="save-recipe-button" mat-button color="primary" type="submit" (click)="saveRecipe()"
                     [disabled]="!isFormValid()">
                     <mat-icon>save</mat-icon> Speichern
                 </button>
@@ -32,7 +32,7 @@
             </div>
 
         </div>
-        <div style="padding: 1em;" fxFlex="auto">
+        <div class="padding" fxFlex="auto">
             <button mat-button color="primary" (click)="addIngredient()">
                 <mat-icon>add</mat-icon> Zutat hinzufügen
             </button>

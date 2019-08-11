@@ -1,0 +1,15 @@
+.button-float-right {
+    float:right;
+}
+
+.light-font {
+    font-size: 50%;
+}
+
+.image-left {
+    max-width: 500px;
+}
+
+.padding-left {
+    padding-left: 1em;
+}

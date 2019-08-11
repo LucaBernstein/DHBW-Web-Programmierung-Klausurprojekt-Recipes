@@ -1,14 +1,14 @@
-<div style="padding: 1em;">
-    <button mat-button color="primary" (click)="editRecipe()" style="float:right;">
+<div class="padding-left">
+    <button mat-button color="primary" (click)="editRecipe()" class="button-float-right">
         <mat-icon>edit</mat-icon> Rezept bearbeiten
     </button>
-    <h2>{{recipe.title}} <small style="font-size: 50%;" *ngIf="recipe.author">von {{ recipe.author }}</small></h2>
+    <h2>{{recipe.title}} <small class="light-font" *ngIf="recipe.author">von {{ recipe.author }}</small></h2>
     <div fxLayout.sm="row" fxLayout.xs="row wrap" fxLayoutAlign="start start">
         <div fxFlex="auto">
             <img *ngIf="recipe.image" mat-card-image src="{{ recipe.image }}" alt="Photo of recipe {{ recipe.title }}"
-                style="max-width: 500px; padding-left: 1em;">
+                class="image-left padding-left">
             <div *ngIf="dataSource.value == undefined || dataSource?.value?.length > 0">
-                <button style="float:right" mat-raised-button color="primary"
+                <button class="button-float-right" mat-raised-button color="primary"
                     (click)="addIngredientsToShoppingCart(recipe)">
                     <mat-icon>add_shopping_cart</mat-icon>Alle Zutaten der Einkaufsliste hinzufügen
                 </button>
@@ -20,7 +20,7 @@
 
         <!-- TODO: On md add paddng to left side-->
         <!-- TODO: Fix this layout. / Try original Material Layout again? -->
-        <div fxFlex.xs="auto" fxFlex.md="" style="padding-left: 1em;">
+        <div fxFlex.xs="auto" fxFlex.md="" class="padding-left">
             <h3>Zubereitung:</h3>
             <p>
                 {{ recipe.description }}
