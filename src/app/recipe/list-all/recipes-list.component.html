@@ -6,7 +6,7 @@
 <!-- TODO: On resize reduce/increase columns?: Bind to cols -->
 <mat-grid-list cols="3" rowHeight="475px">
     <mat-grid-tile *ngFor="let recipe of recipes" class="recipe-card-tile">
-        <mat-card class="recipe-card" [@simpleFadeAnimation]="'in'">
+        <mat-card class="recipe-card">
             <mat-card-header>
                 <!-- In a real-world application the author-image location would also be stored in the recipe metadata. -->
                 <div mat-card-avatar class="recipe-author-image" *ngIf="recipe.author"
@@ -27,9 +27,9 @@
             </mat-card-content>
 
             <mat-card-actions>
-                <a mat-button routerLink="/recipes/edit/{{recipe.id}}">
+                <button mat-button routerLink="/recipes/edit/{{recipe.id}}">
                     <mat-icon>edit</mat-icon> Bearbeiten
-                </a>
+                </button>
                 <button mat-button color="error" (click)="deleteRecipe($event, recipe)">
                     <mat-icon>delete</mat-icon> Löschen
                 </button>
