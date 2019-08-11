@@ -3,9 +3,10 @@
     <strong>Es ist noch kein Rezept vorhanden. Starte, indem du eines hinzufügst.</strong>
 </span>
 
-<div fxLayout="row wrap" fxLayoutGap="grid" fxLayoutAlign="space-evenly start" fxFlex="auto">
-    <div *ngFor="let recipe of recipes" fxFlex="auto" style="padding: 10px;">
-        <mat-card class="recipes-card" [@simpleFadeAnimation]="'in'">
+<!-- TODO: On resize reduce/increase columns?: Bind to cols -->
+<mat-grid-list cols="3" rowHeight="475px">
+    <mat-grid-tile *ngFor="let recipe of recipes" class="recipe-card-tile">
+        <mat-card class="recipe-card" [@simpleFadeAnimation]="'in'">
             <mat-card-header>
                 <!-- In a real-world application the author-image location would also be stored in the recipe metadata. -->
                 <div mat-card-avatar class="recipe-author-image" *ngIf="recipe.author"
@@ -16,19 +17,16 @@
             </mat-card-header>
 
             <a routerLink="/recipes/{{recipe.id}}">
-                <img *ngIf="recipe.image" mat-card-image src="{{ recipe.image }}"
+                <img *ngIf="recipe.image" class="recipe-image" mat-card-image src="{{ recipe.image }}"
                     alt="Photo of recipe {{ recipe.title }}">
             </a>
-
             <mat-card-content *ngIf="recipe.description">
-                <p>
-                    {{ (recipe.description.length>80)? (recipe.description | slice:0:80)+'...':(recipe.description) }}
+                <p class="recipe-description">
+                    {{ (recipe.description.length>120)? (recipe.description | slice:0:120)+'...':(recipe.description) }}
                 </p>
             </mat-card-content>
 
             <mat-card-actions>
-                <!-- <button mat-button>Edit</button>
-                <button mat-button>Delete</button> -->
                 <a mat-button routerLink="/recipes/edit/{{recipe.id}}">
                     <mat-icon>edit</mat-icon> Bearbeiten
                 </a>
@@ -37,8 +35,8 @@
                 </button>
             </mat-card-actions>
         </mat-card>
-    </div>
-</div>
+    </mat-grid-tile>
+</mat-grid-list>
 
 <button class="fab-button-add" mat-fab routerLink="/recipes/edit/new" color="primary">
     <mat-icon>add</mat-icon>

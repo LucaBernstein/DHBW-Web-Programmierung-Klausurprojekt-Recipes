@@ -1,19 +1,28 @@
-.recipes-card {
-  max-width: 400px;
-  /* min-width: 300px; */
-  /* padding: 30px; */
+.recipe-card {
+    max-width: 400px;
+    height: 420px;
 }
 
-.basic-container {
-  padding: 30px;
+.recipe-card-tile {
+    height: 420px;
+}
+
+.recipe-image {
+    height: 250px;
+    padding: 3px;
+    background-size: cover;
 }
 
 .recipe-author-image {
-  background-size: cover;
+    background-size: cover;
+}
+
+.recipe-description {
+    height: 3em;
 }
 
 .fab-button-add{
-  right: 20px;
-  bottom: 20px;
-  position: fixed;
+    right: 20px;
+    bottom: 20px;
+    position: fixed;
 }
