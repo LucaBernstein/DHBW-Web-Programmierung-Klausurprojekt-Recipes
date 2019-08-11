@@ -2,8 +2,7 @@
 <div mat-dialog-content>
     <p>Produkt-Name</p>
     <mat-form-field>
-        <input required (cdkFocusInitial)="!data?.disabledEditFields" [disabled]="data?.disabledEditFields" matInput
-            [(ngModel)]="data.recipeItem.name">
+        <input required (cdkFocusInitial)="!data?.disabledEditFields" matInput [(ngModel)]="data.recipeItem.name">
     </mat-form-field>
     <!-- TODO: Properly do switch / if-else here? -->
     <div *ngIf="!data.showDefaultQuantityInsteadOfQtd">
@@ -22,11 +21,11 @@
     </div>
     <p>Mengen-Einheit</p>
     <mat-form-field>
-        <input matInput [disabled]="data?.disabledEditFields" [(ngModel)]="data.recipeItem.unit">
+        <input matInput [(ngModel)]="data.recipeItem.unit">
     </mat-form-field>
     <p>Kategorie</p>
     <mat-form-field>
-        <input matInput [disabled]="data?.disabledEditFields" [(ngModel)]="data.recipeItem.category">
+        <input matInput [(ngModel)]="data.recipeItem.category">
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
